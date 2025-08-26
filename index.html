@@ -3,196 +3,154 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="A modern, professional single-file website template — fast, accessible, responsive, and ready for customization.">
-  <meta name="keywords" content="professional, template, single-file, responsive, modern">
-  <meta name="author" content="Nosson">
-  <title>Atlas Studio — Modern Creative Agency</title>
+  <title>Sol & Ember — Modern Hearth Restaurant</title>
+  <meta name="description" content="Sol & Ember — a modern hearth restaurant specializing in wood-fired flavors, seasonal tasting menus, and artisanal cocktails. Reserve, order, or explore our story and menu.">
+  <meta name="theme-color" content="#0e1412">
 
-  <!-- Theme color -->
-  <meta name="theme-color" content="#0b1320">
-
-  <!-- SEO / Social -->
-  <meta property="og:title" content="Atlas Studio — Modern Creative Agency">
-  <meta property="og:description" content="A modern, professional single-file website template — fast, accessible, responsive, and ready for customization.">
-  <meta property="og:image" content="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect width='100%' height='100%' fill='%230b1320'/><text x='50%' y='50%' font-size='44' text-anchor='middle' fill='%23ffffff' font-family='Arial, Helvetica, sans-serif'>Atlas Studio</text></svg>">
-  <meta property="og:type" content="website">
+  <!-- Open Graph (uses inline SVG thumbnails) -->
+  <meta property="og:title" content="Sol & Ember — Modern Hearth Restaurant">
+  <meta property="og:description" content="Experience wood-fired flavors, seasonal tasting menus, and craft cocktails at Sol & Ember.">
+  <meta property="og:image" content="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect width='100%' height='100%' fill='%230e1412'/><text x='50%' y='50%' font-size='48' fill='%23ffcc99' text-anchor='middle' font-family='Arial'>Sol & Ember</text></svg>">
+  <meta property="og:type" content="restaurant.restaurant">
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- JSON-LD structured data -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Atlas Studio",
-    "url": "https://example.com",
-    "logo": "data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='400' height='80'><rect width='100%' height='100%' fill='%230b1320'/><text x='16' y='56' font-size='36' fill='%23ffffff' font-family='Arial'>Atlas Studio</text></svg>",
-    "sameAs": [],
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "telephone": "+1-945-239-5974",
-      "contactType": "Customer service",
-      "areaServed": "US"
-    }]
+    "@context":"https://schema.org",
+    "@type":"Restaurant",
+    "name":"Sol & Ember",
+    "image":"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect width='100%' height='100%' fill='%230e1412'/><text x='50%' y='50%' font-size='48' fill='%23ffcc99' text-anchor='middle' font-family='Arial'>Sol & Ember</text></svg>",
+    "priceRange":"$$$",
+    "servesCuisine":["Contemporary","Wood-fired","Seasonal"],
+    "telephone":"+1-945-239-5974",
+    "address":{"@type":"PostalAddress","streetAddress":"241 Ember Lane","addressLocality":"Dallas","addressRegion":"TX","postalCode":"75201","addressCountry":"US"},
+    "url":"https://example.com",
+    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"528"}
   }
   </script>
 
   <style>
-    /* ---- Reset & base ---- */
+    /* ========= Base / Design tokens ========= */
     :root{
-      --bg:#0b1320; --card:#0f1724; --muted:#98a0b3; --accent:#5eead4; --accent-2:#60a5fa;
-      --glass: rgba(255,255,255,0.04); --radius:16px; --maxw:1200px;
-      --text: #e6eef8; --success:#22c55e; --danger:#ef4444;
+      --bg:#0e1412; --card:#121815; --muted:#98a0a1; --accent:#ffb86b; --accent-2:#ff6a3d;
+      --glass: rgba(255,255,255,0.03); --radius:14px; --maxw:1200px;
+      --text:#f7f6f4; --success:#22c55e; --danger:#ef4444;
+      --gold:#ffd7a6;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0;
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg,#071021 0%, #071225 60%);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-      padding:0 20px;
+      margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,110,50,0.04), transparent),
+                  linear-gradient(180deg,#0b0f0d 0%, #0e1412 60%);
+      color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      padding:18px;
     }
     .container{max-width:var(--maxw); margin:0 auto;}
-    a{color:inherit; text-decoration:none}
 
-    /* ---- Top nav ---- */
-    header{
-      position:sticky; top:12px; z-index:40; backdrop-filter: blur(6px);
-      margin-top:6px; margin-bottom:26px;
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; padding:12px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      box-shadow: 0 6px 18px rgba(2,6,23,0.6);
-    }
+    /* ========= Header ========= */
+    header{position:sticky; top:14px; z-index:40; margin-bottom:22px}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:10px 14px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); box-shadow:0 10px 30px rgba(2,6,10,0.6)}
     .brand{display:flex; gap:12px; align-items:center}
-    .logo-svg{width:46px; height:46px; border-radius:10px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:flex; align-items:center; justify-content:center; font-weight:700; color:#082032; font-family:monospace;}
-    .nav-links{display:flex; gap:14px; align-items:center}
-    .nav-links a{padding:8px 12px; border-radius:10px; color:var(--muted); font-weight:600; font-size:14px}
+    .logo{width:56px; height:56px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--accent),var(--accent-2)); font-weight:900; color:#23130b}
+    .nav-links{display:flex; gap:12px; align-items:center}
+    .nav-links a{color:var(--muted); text-decoration:none; font-weight:700; padding:8px 10px; border-radius:10px}
     .nav-links a:hover{color:var(--text); background:var(--glass)}
-    .cta{background:linear-gradient(90deg,var(--accent-2),var(--accent)); padding:8px 14px; color:#052033; border-radius:10px; font-weight:700; box-shadow: 0 6px 18px rgba(94,234,212,0.08)}
-    .nav-actions{display:flex; gap:8px; align-items:center}
+    .cta{background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#23130b; padding:10px 14px; border-radius:10px; font-weight:900}
 
-    /* ---- Hero ---- */
-    .hero{
-      display:grid; grid-template-columns: 1fr 460px; gap:28px; align-items:center;
-      margin:12px 0 40px;
-    }
-    .lead{font-size:14px; color:var(--accent); font-weight:700; letter-spacing:0.6px; margin-bottom:12px;}
-    h1{font-size:40px; margin:0 0 12px; line-height:1.03}
-    p.lead-text{color:var(--muted); margin:0 0 20px; max-width:72%;}
-    .actions{display:flex; gap:12px; margin-top:6px}
-    .btn{padding:12px 18px; border-radius:12px; font-weight:700; cursor:pointer; border:0}
-    .btn-outline{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,0.06)}
-    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#052033}
-    .metrics{display:flex; gap:18px; margin-top:22px}
-    .metric{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:10px 14px; border-radius:12px; text-align:center}
-    .metric .num{font-size:18px; font-weight:800}
+    /* ========= Hero ========= */
+    .hero{display:grid; grid-template-columns: 1fr 420px; gap:28px; align-items:center; margin-top:6px}
+    .eyebrow{font-weight:800; color:var(--gold); letter-spacing:0.6px; font-size:13px}
+    h1{font-size:44px; margin:8px 0 12px; line-height:1.03}
+    p.lead{color:var(--muted); margin:0 0 18px; max-width:74%}
+    .hero-actions{display:flex; gap:10px; align-items:center; margin-top:8px}
+    .btn{padding:12px 16px; border-radius:12px; border:0; font-weight:800; cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent-2),var(--accent)); color:#27140a}
+    .btn-outline{background:transparent; border:1px solid rgba(255,255,255,0.04); color:var(--text)}
 
-    /* ---- Hero visual card ---- */
-    .visual-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border-radius:20px; padding:18px; box-shadow: 0 10px 30px rgba(2,6,23,0.6); display:flex; flex-direction:column; gap:12px}
-    .visual-top{display:flex; gap:12px; align-items:center}
-    .profile{width:52px; height:52px; border-radius:12px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:linear-gradient(90deg,#2dd4bf,#60a5fa)}
-    .viz-img{border-radius:12px; width:100%; height:240px; overflow:hidden; background:linear-gradient(90deg, #082032 0%, #0b3250 100%); display:flex; align-items:center; justify-content:center}
-    .viz-img img{width:100%; height:100%; object-fit:cover; display:block}
+    /* ========= Visual Card (right) ========= */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:16px; padding:14px; box-shadow:0 12px 34px rgba(3,6,8,0.6)}
+    .hero-visual{height:360px; border-radius:12px; overflow:hidden; display:flex; flex-direction:column}
+    .visual-top{display:flex; justify-content:space-between; padding:12px; align-items:center}
+    .badge{background:rgba(0,0,0,0.25); padding:6px 10px; border-radius:999px; color:var(--gold); font-weight:800}
+    .hero-image{flex:1; background-size:cover; background-position:center; display:flex; align-items:flex-end; padding:18px}
 
-    /* ---- Grid sections ---- */
-    section{margin-bottom:48px}
-    .cards{display:grid; grid-template-columns: repeat(3,1fr); gap:18px}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px; border-radius:14px; min-height:140px}
-    .card h3{margin:0 0 8px}
-    .card p{margin:0; color:var(--muted); font-size:14px}
+    /* ========= Menu & Sections ========= */
+    section{margin-top:34px}
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+    .dish{display:flex; gap:12px; align-items:center; background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent); padding:12px; border-radius:12px}
+    .dish .img{width:108px; height:78px; border-radius:10px; overflow:hidden; flex:0 0 108px; background-size:cover; background-position:center; box-shadow:inset 0 -20px 30px rgba(0,0,0,0.45)}
+    .dish h4{margin:0; font-size:16px}
+    .price{font-weight:900; color:var(--gold)}
 
-    /* ---- Portfolio grid ---- */
-    .portfolio-grid{display:grid; grid-template-columns: repeat(4,1fr); gap:12px}
-    .portfolio-item{border-radius:12px; overflow:hidden; position:relative; min-height:140px; display:flex; flex-direction:column; justify-content:flex-end; padding:12px; background-size:cover; background-position:center; box-shadow: inset 0 -60px 40px rgba(2,6,23,0.45)}
-    .portfolio-item h4{margin:0; color:white; font-size:16px}
-    .portfolio-item p{margin:6px 0 0; color:rgba(255,255,255,0.9); font-size:12px}
+    /* ========= Specials / CTA ========= */
+    .special{display:flex; gap:16px; align-items:center; justify-content:space-between; padding:18px; border-radius:14px; background:linear-gradient(90deg, rgba(255,106,61,0.06), rgba(255,184,107,0.02)); border:1px solid rgba(255,255,255,0.03)}
 
-    /* ---- Testimonials ---- */
-    .testimonials{display:flex; gap:12px}
-    .testimonial{flex:1; padding:18px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); min-height:120px}
-    .stars{color:gold; margin-bottom:8px}
+    /* ========= Chef cards / testimonials ========= */
+    .people{display:flex; gap:12px}
+    .person{flex:1; padding:12px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); text-align:center}
+    .avatar{width:84px; height:84px; border-radius:999px; margin:0 auto 10px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--accent),var(--accent-2)); font-weight:900}
 
-    /* ---- Pricing ---- */
-    .pricing{display:flex; gap:12px; align-items:stretch}
-    .plan{flex:1; padding:18px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03)}
-    .plan h4{margin:0 0 8px}
-    .feature-list{list-style:none; padding:0; margin:12px 0 0}
-    .feature-list li{margin-bottom:8px; color:var(--muted)}
+    /* ========= Ordering / Reservation ========= */
+    .actions-panel{display:flex; gap:12px; align-items:flex-start; flex-wrap:wrap}
+    form .row{display:flex; gap:8px}
+    input, select, textarea{width:100%; padding:10px; border-radius:10px; background:transparent; border:1px solid rgba(255,255,255,0.04); color:var(--text); outline:none}
+    textarea{min-height:100px; resize:vertical}
+    .notice{font-size:13px; color:var(--muted)}
 
-    /* ---- Blog previews ---- */
-    .blog-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    /* ========= Footer ========= */
+    footer{margin-top:38px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.02); display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap}
 
-    /* ---- Contact ---- */
-    .contact-grid{display:grid; grid-template-columns:1fr 420px; gap:18px; align-items:start}
-    .form {background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px; border-radius:12px}
-    label{display:block; font-size:13px; margin-bottom:8px; color:var(--muted)}
-    input[type="text"], input[type="email"], textarea, select{
-      width:100%; padding:12px; border-radius:10px; background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--text); outline:none;
-    }
-    textarea{min-height:120px; resize:vertical}
-    .form .row{display:flex; gap:12px}
-    .small{font-size:12px; color:var(--muted)}
-
-    /* ---- Footer ---- */
-    footer{padding:28px 0; border-top:1px solid rgba(255,255,255,0.02)}
-    .footer-grid{display:flex; gap:18px; justify-content:space-between; align-items:flex-start; flex-wrap:wrap}
-
-    /* ---- Responsiveness ---- */
+    /* ========= Responsive ========= */
     @media (max-width:1100px){
       .hero{grid-template-columns:1fr}
-      .portfolio-grid{grid-template-columns:repeat(2,1fr)}
-      .cards{grid-template-columns:repeat(2,1fr)}
-      .blog-grid{grid-template-columns:repeat(2,1fr)}
-      .contact-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .grid-2{grid-template-columns:repeat(1,1fr)}
+      .people{flex-direction:column}
     }
     @media (max-width:640px){
       h1{font-size:30px}
       .nav-links{display:none}
-      .portfolio-grid{grid-template-columns:repeat(1,1fr)}
-      .cards{grid-template-columns:repeat(1,1fr)}
-      .blog-grid{grid-template-columns:repeat(1,1fr)}
+      .hero-visual{height:260px}
     }
 
-    /* ---- small UX flourishes ---- */
-    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03); color:var(--accent); font-weight:700; font-size:12px}
-    .muted{color:var(--muted)}
-    .glass{background:var(--glass)}
-    .shadow-soft{box-shadow: 0 8px 30px rgba(2,6,23,0.6)}
-    .rounded{border-radius:12px}
-    .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace}
-    .center{display:flex; align-items:center; justify-content:center}
+    /* ========= Small interactions ========= */
+    .fade-in{animation:fadeIn 900ms ease both}
+    @keyframes fadeIn{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none}}
+    .pulse{animation:pulse 2200ms ease-in-out infinite}
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+
+    /* accessibility focus */
+    :focus{outline:3px solid rgba(255,184,107,0.18); outline-offset:3px; border-radius:8px}
     .sr-only{position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden}
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container" role="document">
     <!-- Header -->
     <header>
-      <nav class="nav" role="navigation" aria-label="Main navigation">
-        <div class="brand">
-          <div class="logo-svg" aria-hidden="true">A</div>
+      <nav class="nav" role="navigation" aria-label="Main">
+        <div class="brand" role="banner">
+          <div class="logo" aria-hidden="true">S&E</div>
           <div>
-            <div style="font-weight:800">Atlas Studio</div>
-            <div style="font-size:12px;color:var(--muted)">Design · Digital · Growth</div>
+            <div style="font-weight:900">Sol & Ember</div>
+            <div style="font-size:12px;color:var(--muted)">Modern Hearth — Wood-Fired & Seasonal</div>
           </div>
         </div>
 
-        <div class="nav-links" role="menubar" aria-label="Primary">
-          <a href="#services" role="menuitem">Services</a>
-          <a href="#portfolio" role="menuitem">Portfolio</a>
-          <a href="#pricing" role="menuitem">Pricing</a>
-          <a href="#blog" role="menuitem">Blog</a>
-          <a href="#contact" role="menuitem">Contact</a>
+        <div class="nav-links" role="menubar">
+          <a href="#menu" role="menuitem">Menu</a>
+          <a href="#story" role="menuitem">Our Story</a>
+          <a href="#reservations" role="menuitem">Reserve</a>
+          <a href="#order" role="menuitem">Order</a>
+          <a href="#visit" role="menuitem">Visit</a>
         </div>
 
-        <div class="nav-actions">
-          <button id="toggleTheme" title="Toggle dark/light" class="btn btn-outline" aria-pressed="false">Toggle</button>
-          <a class="cta" href="#contact">Get Started</a>
+        <div style="display:flex;gap:8px;align-items:center">
+          <button id="toggleTheme" class="btn btn-outline" aria-pressed="false">Light</button>
+          <a class="cta" href="#reservations">Reserve Now</a>
         </div>
       </nav>
     </header>
@@ -201,410 +159,555 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div>
-          <div class="lead">GLOBAL · STRATEGIC · HUMAN</div>
-          <h1 id="hero-title">We design products & experiences that move people —</h1>
-          <p class="lead-text">Atlas Studio is a full-stack creative and product studio. We build brand identities, web and mobile products, and growth strategies for startups and enterprise teams.</p>
+          <div class="eyebrow">SEASONAL • HEARTH • COMMUNITY</div>
+          <h1 id="hero-title">Sol & Ember — Where the wood sings and flavor meets fire.</h1>
+          <p class="lead">A modern hearth restaurant celebrating seasonal produce, wood-fired technique, and warm hospitality. Tasting menus, a la carte fire-roasted mains, craft cocktails, and a cellar-driven wine list curated for discovery.</p>
 
-          <div class="actions" role="group" aria-label="Primary actions">
-            <a class="btn btn-primary" href="#contact">Start a Project</a>
-            <button class="btn btn-outline" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Explore Demo</button>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#reservations">Reserve a Table</a>
+            <button class="btn btn-outline" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">Order Takeaway</button>
+            <button class="btn btn-outline" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">View Menu</button>
           </div>
 
-          <div class="metrics" role="list" aria-label="Key metrics">
-            <div class="metric" role="listitem">
-              <div class="num">250+</div>
-              <div class="muted">Projects Completed</div>
+          <div class="fade-in" style="margin-top:18px; display:flex; gap:12px; align-items:center">
+            <div style="background:var(--glass); padding:10px 12px; border-radius:10px">
+              <div style="font-weight:900">Open Tonight</div>
+              <div class="notice">5:00 PM — 11:00 PM • Last seating 9:45 PM</div>
             </div>
-            <div class="metric" role="listitem">
-              <div class="num">95%</div>
-              <div class="muted">Client Satisfaction</div>
-            </div>
-            <div class="metric" role="listitem">
-              <div class="num">48</div>
-              <div class="muted">Countries Served</div>
+
+            <div style="background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:10px 12px; border-radius:10px">
+              <div style="font-weight:900">$65 Tasting Menu</div>
+              <div class="notice">7 courses · optional wine pairing +$45</div>
             </div>
           </div>
         </div>
 
-        <!-- Visual / demo card -->
-        <aside class="visual-card" aria-hidden="false" aria-label="Product demo card">
+        <!-- Right visual with generated hero image -->
+        <aside class="card hero-visual" aria-hidden="false">
           <div class="visual-top">
-            <div class="profile" title="Atlas Studio">
-              <!-- Tiny generated logo (SVG inline) -->
-              <svg width="40" height="40" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <rect width="48" height="48" rx="10" fill="#fff" opacity="0.08"/>
-                <g fill="#082033" font-family="monospace" font-weight="700"><text x="9" y="31" font-size="20">A</text></g>
-              </svg>
-            </div>
             <div>
-              <div style="font-weight:800">Atlas Prototype</div>
-              <div class="muted" style="font-size:13px">Interactive product preview</div>
+              <div style="font-weight:900">Tonight's Highlight</div>
+              <div class="notice">Charred octopus • smoked paprika jus</div>
             </div>
+            <div class="badge">Chef's Choice</div>
           </div>
 
-          <div class="viz-img" id="demo">
-            <!-- Generated abstract SVG illustration as data URI -->
-            <img alt="Abstract interface mockup" src="data:image/svg+xml;utf8,
-            <svg xmlns='http://www.w3.org/2000/svg' width='760' height='420' viewBox='0 0 760 420'>
-              <defs>
-                <linearGradient id='g1' x1='0' x2='1'><stop offset='0' stop-color='%230b3250'/><stop offset='1' stop-color='%23082b3f'/></linearGradient>
-                <linearGradient id='g2' x1='0' x2='1'><stop offset='0' stop-color='%235eead4'/><stop offset='1' stop-color='%2360a5fa'/></linearGradient>
-              </defs>
-              <rect width='100%' height='100%' fill='%23071a2a'/>
-              <g transform='translate(28,28)'>
-                <rect x='0' y='0' width='704' height='364' rx='18' fill='url(%23g1)' opacity='0.9'/>
-                <rect x='24' y='24' width='656' height='84' rx='10' fill='rgba(255,255,255,0.06)'/>
-                <rect x='24' y='124' width='420' height='236' rx='10' fill='rgba(255,255,255,0.03)'/>
-                <rect x='456' y='124' width='224' height='100' rx='10' fill='rgba(255,255,255,0.03)'/>
-                <circle cx='560' cy='200' r='36' fill='url(%23g2)'/>
-                <rect x='456' y='240' width='224' height='100' rx='10' fill='rgba(255,255,255,0.03)'/>
-                <g fill='rgba(255,255,255,0.06)'><rect x='48' y='36' width='120' height='12' rx='6'/><rect x='180' y='36' width='120' height='12' rx='6'/></g>
-                <g fill='rgba(255,255,255,0.12)'><rect x='48' y='144' width='384' height='12' rx='6'/><rect x='48' y='168' width='320' height='12' rx='6'/></g>
-              </g>
-            </svg>">
-          </div>
+          <div id="heroImg" class="hero-image" role="img" aria-label="Wood-fired hearth with plated dishes"></div>
 
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <div class="muted small">Live prototype snapshot</div>
-            <div style="display:flex; gap:8px">
-              <div class="badge">SaaS</div>
-              <div class="badge">Product Design</div>
-            </div>
+          <div style="display:flex; justify-content:space-between; padding:12px; align-items:center">
+            <div class="muted">Chef tasting experience • 7 courses</div>
+            <div style="font-weight:900; font-size:18px; color:var(--gold)">$65</div>
           </div>
         </aside>
       </section>
 
-      <!-- Services -->
-      <section id="services" aria-labelledby="services-title">
-        <div style="display:flex; justify-content:space-between; align-items:end; gap:12px; flex-wrap:wrap;">
-          <h2 id="services-title">Services we offer</h2>
-          <div class="small muted">Tailored strategies, full delivery</div>
-        </div>
-        <div class="cards" style="margin-top:12px">
-          <div class="card">
-            <h3>Product Design</h3>
-            <p>Create intuitive, beautiful products with UX research, prototyping, and visual systems.</p>
-            <div style="margin-top:12px"><strong>Deliverables:</strong> User research, wireframes, prototype, design system</div>
-          </div>
-          <div class="card">
-            <h3>Brand & Identity</h3>
-            <p>Logo systems, brand guidelines, messaging, and visual storytelling for consistent impact.</p>
-            <div style="margin-top:12px"><strong>Deliverables:</strong> Logo, tokens, typography, usage guide</div>
-          </div>
-          <div class="card">
-            <h3>Engineering</h3>
-            <p>Modern web apps with focus on performance, accessibility, and maintainability.</p>
-            <div style="margin-top:12px"><strong>Deliverables:</strong> Production code, CI, documentation</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Portfolio -->
-      <section id="portfolio" aria-labelledby="portfolio-title">
+      <!-- Menu (AI-generated dishes & prices) -->
+      <section id="menu" aria-labelledby="menu-title">
         <div style="display:flex; justify-content:space-between; align-items:end;">
-          <h2 id="portfolio-title">Selected Work</h2>
-          <a class="small muted" href="#portfolio">View case studies →</a>
+          <h2 id="menu-title">Menu</h2>
+          <div class="notice">All ingredients local & seasonal. Prices include service.</div>
         </div>
-        <div class="portfolio-grid" style="margin-top:12px">
-          <!-- Items use generated SVG backgrounds (data URIs) -->
-          <div class="portfolio-item" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22300%22><defs><linearGradient id=%22g1%22 x1=%220%22 x2=%221%22><stop offset=%220%25%22 stop-color=%22%230b3250%22/><stop offset=%22100%25%22 stop-color=%22%23082b3f%22/></linearGradient></defs><rect width=%22500%22 height=%22300%22 fill=%22url(%23g1)%22/><g fill=%22rgba(255,255,255,0.1)%22><rect x=%2224%22 y=%2280%22 width=%22452%22 height=%2260%22 rx=%2212%22/></g></svg>');">
-            <h4>Commerce Platform</h4>
-            <p>Headless commerce for a global retailer</p>
+
+        <!-- Specials strip -->
+        <div class="special fade-in" style="margin-top:12px">
+          <div>
+            <div style="font-weight:900; font-size:18px">Tonight's Fireboard</div>
+            <div class="notice">A rotating selection of three hearth-roasted small plates — crafted for sharing.</div>
+          </div>
+          <div style="display:flex; gap:10px; align-items:center">
+            <div style="font-weight:900; font-size:18px; color:var(--gold)">$28</div>
+            <button class="btn btn-primary" onclick="addToOrder('Fireboard (3 items)',28)">Add to Order</button>
+          </div>
+        </div>
+
+        <!-- Three columns: Starters, Mains, Desserts -->
+        <div class="grid-3" style="margin-top:18px">
+          <!-- Starters -->
+          <div class="card">
+            <h3>Starters</h3>
+            <p class="notice">Small plates to awaken the palate</p>
+            <div style="margin-top:12px" id="starters">
+              <!-- Generated items go here -->
+            </div>
           </div>
 
-          <div class="portfolio-item" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22300%22><rect width=%22500%22 height=%22300%22 fill=%22%230b1320%22/><g><circle cx=%22120%22 cy=%22120%22 r=%2280%22 fill=%22%235eead4%22 opacity=%220.08%22/></g></svg>');">
-            <h4>Wellness App</h4>
-            <p>Subscription product with habit tracking</p>
+          <!-- Mains -->
+          <div class="card">
+            <h3>Mains</h3>
+            <p class="notice">Hearth-driven, served family style</p>
+            <div style="margin-top:12px" id="mains"></div>
           </div>
 
-          <div class="portfolio-item" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22300%22><rect width=%22500%22 height=%22300%22 fill=%22%230b2a3a%22/><g><rect x=%2240%22 y=%2240%22 width=%22420%22 height=%22220%22 rx=%2216%22 fill=%22rgba(255,255,255,0.02)%22/></g></svg>');">
-            <h4>Finance Dashboard</h4>
-            <p>Real-time analytics for traders</p>
+          <!-- Desserts & Sides -->
+          <div class="card">
+            <h3>Desserts & Sides</h3>
+            <p class="notice">Finish strong — seasonal sweets and hearth-roasted sides</p>
+            <div style="margin-top:12px" id="desserts"></div>
           </div>
+        </div>
 
-          <div class="portfolio-item" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22300%22><rect width=%22500%22 height=%22300%22 fill=%22%23082b3f%22/><g fill=%22rgba(255,255,255,0.07)%22><rect x=%2260%22 y=%2296%22 width=%22380%22 height=%2280%22 rx=%2210%22/></g></svg>');">
-            <h4>Marketing Campaign</h4>
-            <p>Brand lift across platforms</p>
+        <!-- Wine & Cocktails -->
+        <div class="grid-2" style="margin-top:18px">
+          <div class="card">
+            <h3>Wine & Pairing</h3>
+            <p class="notice">Hand-selected list focusing on low-intervention producers</p>
+            <ul style="margin-top:12px; padding-left:18px; color:var(--muted)">
+              <li><strong>Sunfield Chardonnay (glass)</strong> — $12</li>
+              <li><strong>Ridge Pinot Noir (glass)</strong> — $14</li>
+              <li><strong>House red (bottle)</strong> — $48</li>
+              <li><strong>Wine pairing (per person)</strong> — $45</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Cocktails</h3>
+            <p class="notice">Seasonal craft cocktail program</p>
+            <ul style="margin-top:12px; padding-left:18px; color:var(--muted)">
+              <li><strong>Ember Old Fashioned</strong> — bourbon, smoked cinnamon — $14</li>
+              <li><strong>Sol Spritz</strong> — citrus, elderflower — $12</li>
+              <li><strong>Smoked Paloma</strong> — mezcal, charred grapefruit — $13</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <!-- Testimonials -->
-      <section aria-labelledby="testimonials-title">
+      <!-- Chef & Story -->
+      <section id="story" aria-labelledby="story-title">
         <div style="display:flex; justify-content:space-between; align-items:end;">
-          <h2 id="testimonials-title">What clients say</h2>
-          <div class="small muted">Trusted by founders and teams</div>
+          <h2 id="story-title">Our Story</h2>
+          <div class="notice">From a backyard experiment to a neighborhood hearth</div>
         </div>
 
-        <div class="testimonials" style="margin-top:12px">
-          <div class="testimonial">
-            <div class="stars">★★★★★</div>
-            <div style="font-weight:800">"Turned our idea into a best-in-class product."</div>
-            <div class="muted small">— Maya T., Founder, Luma Health</div>
-          </div>
+        <div style="display:grid; grid-template-columns:1fr 380px; gap:18px; margin-top:12px">
+          <div class="card">
+            <p class="notice">Sol & Ember began as a passion project by Chef Marin Solano — a desire to reconnect cooking with flame, place, and seasonality. We partner with local farms, practice regenerative buying, and celebrate the transformative flavor of fire. Our tasting menu changes weekly. We balance textural contrasts, char, smoke, and bright seasonal produce to create memorable meals for friends and strangers alike.</p>
 
-          <div class="testimonial">
-            <div class="stars">★★★★★</div>
-            <div style="font-weight:800">"Fast, reliable, and incredibly thoughtful."</div>
-            <div class="muted small">— Jorge R., VP Product, Marketify</div>
-          </div>
-
-          <div class="testimonial">
-            <div class="stars">★★★★★</div>
-            <div style="font-weight:800">"Our conversion increased 38% after relaunch."</div>
-            <div class="muted small">— Priya K., CMO, FitWell</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Pricing -->
-      <section id="pricing" aria-labelledby="pricing-title">
-        <h2 id="pricing-title">Pricing</h2>
-        <div class="pricing" style="margin-top:12px">
-          <div class="plan">
-            <h4>Starter</h4>
-            <div style="font-weight:800; font-size:20px">$2,500 <span class="muted" style="font-weight:700; font-size:12px">one-time</span></div>
-            <ul class="feature-list">
-              <li>Discovery & prototype</li>
-              <li>2 week timeline</li>
-              <li>Design system (basic)</li>
-            </ul>
-            <div style="margin-top:12px"><button class="btn btn-primary">Book Starter</button></div>
-          </div>
-
-          <div class="plan">
-            <h4>Growth</h4>
-            <div style="font-weight:800; font-size:20px">$9,500 <span class="muted" style="font-weight:700; font-size:12px">project</span></div>
-            <ul class="feature-list">
-              <li>Full product design</li>
-              <li>Engineering handoff</li>
-              <li>6–10 week timeline</li>
-            </ul>
-            <div style="margin-top:12px"><button class="btn btn-primary">Book Growth</button></div>
-          </div>
-
-          <div class="plan">
-            <h4>Enterprise</h4>
-            <div style="font-weight:800; font-size:20px">Custom</div>
-            <ul class="feature-list">
-              <li>Dedicated team</li>
-              <li>SLAs & integrations</li>
-              <li>Long-term partnership</li>
-            </ul>
-            <div style="margin-top:12px"><button class="btn btn-outline">Talk to Sales</button></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Blog -->
-      <section id="blog" aria-labelledby="blog-title">
-        <div style="display:flex; justify-content:space-between; align-items:end;">
-          <h2 id="blog-title">From our lab</h2>
-          <a class="small muted" href="#blog">View all articles →</a>
-        </div>
-
-        <div class="blog-grid" style="margin-top:12px">
-          <article class="card" aria-labelledby="b1">
-            <h3 id="b1">Design systems that scale</h3>
-            <p class="muted">How to build reusable tokens that survive teams and time.</p>
-            <div style="margin-top:12px" class="small muted">Oct 14, 2024 · 6 min read</div>
-          </article>
-
-          <article class="card" aria-labelledby="b2">
-            <h3 id="b2">Performance-first engineering</h3>
-            <p class="muted">Tactics for sub-200ms interactive experiences on web.</p>
-            <div style="margin-top:12px" class="small muted">Sep 04, 2024 · 8 min read</div>
-          </article>
-
-          <article class="card" aria-labelledby="b3">
-            <h3 id="b3">Scaling user research</h3>
-            <p class="muted">Balancing speed and depth in early-stage product discovery.</p>
-            <div style="margin-top:12px" class="small muted">Jul 11, 2024 · 5 min read</div>
-          </article>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title">Let's talk about your project</h2>
-        <div class="contact-grid" style="margin-top:12px">
-          <form class="form" id="contactForm" onsubmit="return submitForm(event)" aria-label="Contact form">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your full name" required>
-
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@company.com" required>
-
-            <div class="row" style="margin-top:12px">
-              <div style="flex:1">
-                <label for="budget">Budget</label>
-                <select id="budget" name="budget">
-                  <option value="$2500">$2,500+</option>
-                  <option value="$9500">$9,500+</option>
-                  <option value="custom">Custom enterprise</option>
-                </select>
+            <h3 style="margin-top:18px">Chef & Team</h3>
+            <div class="people" style="margin-top:12px">
+              <div class="person">
+                <div class="avatar" aria-hidden="true">M</div>
+                <div style="font-weight:900">Marin Solano</div>
+                <div class="notice" style="margin-top:6px">Executive Chef · Founder</div>
               </div>
-              <div style="flex:1">
-                <label for="timeline">Timeline</label>
-                <select id="timeline" name="timeline">
-                  <option value="2-4 weeks">2–4 weeks</option>
-                  <option value="1-3 months">1–3 months</option>
-                  <option value="3+ months">3+ months</option>
-                </select>
+              <div class="person">
+                <div class="avatar" aria-hidden="true">L</div>
+                <div style="font-weight:900">Luz Ortega</div>
+                <div class="notice" style="margin-top:6px">Pastry Chef</div>
+              </div>
+              <div class="person">
+                <div class="avatar" aria-hidden="true">C</div>
+                <div style="font-weight:900">Carter H.</div>
+                <div class="notice" style="margin-top:6px">Beverage Director</div>
               </div>
             </div>
+          </div>
 
-            <label for="message" style="margin-top:12px">Project summary</label>
-            <textarea id="message" name="message" placeholder="Briefly describe your project" required></textarea>
-
-            <div style="display:flex; gap:12px; margin-top:12px; align-items:center">
-              <button class="btn btn-primary" type="submit">Send message</button>
-              <div id="formStatus" class="small muted" aria-live="polite"></div>
-            </div>
-
-            <div class="small muted" style="margin-top:12px">By sending this message you agree to our <a href="#privacy" class="muted">privacy policy</a>.</div>
-          </form>
-
-          <aside style="padding:18px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));">
-            <div style="font-weight:800">Contact</div>
-            <div class="muted small" style="margin-top:8px">Phone</div>
-            <div style="margin-bottom:8px">+1 (945) 239-5974</div>
-
-            <div class="muted small" style="margin-top:8px">Email</div>
-            <div style="margin-bottom:8px">hello@atlas.studio</div>
-
-            <div class="muted small" style="margin-top:8px">Address</div>
-            <div class="muted">Dallas, TX · Remote</div>
-
-            <div style="margin-top:18px">
-              <div class="mono small muted">We're available Mon–Fri • 9am–6pm CST</div>
-            </div>
-
-            <div style="margin-top:18px">
-              <div style="font-weight:700; font-size:13px">Follow</div>
-              <div style="display:flex; gap:8px; margin-top:8px">
-                <a class="badge" href="#" aria-label="LinkedIn">LinkedIn</a>
-                <a class="badge" href="#" aria-label="Dribbble">Dribbble</a>
-                <a class="badge" href="#" aria-label="GitHub">GitHub</a>
-              </div>
+          <aside class="card">
+            <h4 style="margin-top:0">Private Dining & Events</h4>
+            <p class="notice">Host a private hearth dinner for 12–28 guests. Seasonal tasting menus and bespoke wine pairing available.</p>
+            <div style="margin-top:12px; font-weight:900; color:var(--gold)">$950 / event (starting)</div>
+            <div style="margin-top:12px">
+              <button class="btn btn-primary" onclick="document.getElementById('reservations').scrollIntoView({behavior:'smooth'})">Inquire</button>
             </div>
           </aside>
         </div>
       </section>
 
-      <!-- Accessibility / performance notes -->
-      <section aria-hidden="true" style="opacity:0.9">
-        <div class="card">
-          <h3>Built for accessibility</h3>
-          <p class="muted">Keyboard focus states, aria labels, semantic markup, color contrast, and screen reader friendliness are included by default. This single-file template is optimized for performance — minimal DOM, no external requests, and inline images to avoid network latency.</p>
+      <!-- Reservations & Ordering -->
+      <section id="reservations" aria-labelledby="reservations-title">
+        <div style="display:flex; justify-content:space-between; align-items:end;">
+          <h2 id="reservations-title">Reserve or Order</h2>
+          <div class="notice">Walk-ins welcome when space allows</div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 420px; gap:16px; margin-top:12px">
+          <!-- Reservation form -->
+          <div class="card">
+            <h3 style="margin-top:0">Reserve a Table</h3>
+            <form id="resForm" onsubmit="return handleReserve(event)" aria-label="Reservation form">
+              <label class="sr-only" for="rName">Name</label>
+              <input id="rName" name="name" placeholder="Full name" required>
+
+              <div class="row" style="margin-top:8px">
+                <input id="rPhone" name="phone" placeholder="Phone or email" required>
+                <input id="rGuests" name="guests" placeholder="Guests" type="number" min="1" max="20" value="2" style="max-width:120px">
+              </div>
+
+              <div class="row" style="margin-top:8px">
+                <input id="rDate" name="date" type="date" required>
+                <input id="rTime" name="time" type="time" required>
+              </div>
+
+              <label style="margin-top:8px">Seating preference</label>
+              <select id="rPref" name="pref">
+                <option>Hearth Table</option>
+                <option>Window</option>
+                <option>High Top</option>
+                <option>Private Room</option>
+              </select>
+
+              <div style="margin-top:12px; display:flex; gap:10px; align-items:center">
+                <button class="btn btn-primary" type="submit">Request Reservation</button>
+                <div id="resStatus" class="notice" aria-live="polite"></div>
+              </div>
+
+              <div class="notice" style="margin-top:8px">Note: Reservations are requested and confirmed via phone/email. This demo stores reservations locally.</div>
+            </form>
+          </div>
+
+          <!-- Ordering / Cart -->
+          <aside class="card">
+            <h3 style="margin-top:0">Your Order</h3>
+            <div id="cart" style="min-height:160px; margin-top:8px" aria-live="polite">
+              <div class="notice">Your cart is empty</div>
+            </div>
+
+            <div style="display:flex; gap:10px; margin-top:12px">
+              <button class="btn btn-primary" onclick="checkout()">Checkout</button>
+              <button class="btn btn-outline" onclick="clearCart()">Clear</button>
+            </div>
+
+            <div style="margin-top:12px" class="notice">Pickup ready in ~25–40 minutes. No payment processed in demo.</div>
+          </aside>
         </div>
       </section>
-    </main>
 
-    <!-- Footer -->
-    <footer>
-      <div class="footer-grid">
+      <!-- Order Section: quick items with images -->
+      <section id="order" aria-labelledby="order-title">
+        <div style="display:flex; justify-content:space-between; align-items:end;">
+          <h2 id="order-title">Order Takeaway</h2>
+          <div class="notice">Pickup or curbside available</div>
+        </div>
+
+        <div class="grid-3" style="margin-top:12px" id="orderItems"></div>
+      </section>
+
+      <!-- Testimonials / Reviews -->
+      <section aria-labelledby="reviews-title">
+        <div style="display:flex; justify-content:space-between; align-items:end;">
+          <h2 id="reviews-title">What diners say</h2>
+          <div class="notice">4.9 · 528 reviews</div>
+        </div>
+
+        <div class="grid-3" style="margin-top:12px">
+          <div class="card">
+            <div style="font-weight:900">"An astonishing tasting menu — unforgettable"</div>
+            <div class="notice" style="margin-top:8px">— Alex R., Dallas</div>
+          </div>
+          <div class="card">
+            <div style="font-weight:900">"Perfect balance of smoke and brightness"</div>
+            <div class="notice" style="margin-top:8px">— Priya K., Food Critic</div>
+          </div>
+          <div class="card">
+            <div style="font-weight:900">"Wine pairings elevated every course"</div>
+            <div class="notice" style="margin-top:8px">— Theo M., Sommelier</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visit / Contact -->
+      <section id="visit" aria-labelledby="visit-title">
+        <div style="display:flex; justify-content:space-between; align-items:end;">
+          <h2 id="visit-title">Visit Us</h2>
+          <div class="notice">Walk-ins welcome • Events by inquiry</div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 340px; gap:16px; margin-top:12px">
+          <div class="card">
+            <h3 style="margin-top:0">Location</h3>
+            <p class="notice">241 Ember Lane, Dallas, TX 75201</p>
+            <div style="margin-top:10px; display:flex; gap:8px; align-items:center">
+              <div style="font-weight:900; color:var(--gold)">Hours</div>
+              <div class="notice" style="margin-left:12px">Mon–Thu 5pm–10pm · Fri–Sat 5pm–11pm · Sun Brunch 10am–2pm</div>
+            </div>
+
+            <h4 style="margin-top:18px">Contact</h4>
+            <div class="notice">Phone: +1 (945) 239-5974</div>
+            <div class="notice">Email: reservations@solandember.example</div>
+
+            <div style="margin-top:16px">
+              <button class="btn btn-outline" onclick="window.print()">Print Menu</button>
+            </div>
+          </div>
+
+          <aside class="card">
+            <h3 style="margin-top:0">Quick Contact</h3>
+            <form id="contactQuick" onsubmit="return handleContactQuick(event)" aria-label="Quick contact">
+              <input id="cName" placeholder="Name" required>
+              <input id="cEmail" placeholder="Email" style="margin-top:8px" required>
+              <textarea id="cMsg" placeholder="Message" style="margin-top:8px" required></textarea>
+              <div style="margin-top:8px; display:flex; gap:8px">
+                <button class="btn btn-primary" type="submit">Send</button>
+                <div id="cStatus" class="notice" aria-live="polite"></div>
+              </div>
+            </form>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
         <div>
-          <div style="font-weight:900">Atlas Studio</div>
-          <div class="muted small">Design · Digital · Growth</div>
+          <div style="font-weight:900">Sol & Ember</div>
+          <div class="notice">Modern Hearth • Dallas, TX</div>
         </div>
 
-        <div style="display:flex; gap:24px; align-items:start; flex-wrap:wrap">
-          <div>
-            <div style="font-weight:700">Services</div>
-            <div class="muted small">Product · Brand · Engineering</div>
-          </div>
-
-          <div>
-            <div style="font-weight:700">Company</div>
-            <div class="muted small">Careers · Privacy · Terms</div>
-          </div>
-
-          <div>
-            <div style="font-weight:700">Contact</div>
-            <div class="muted small">hello@atlas.studio</div>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top:18px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
-        <div class="small muted">© <span id="year"></span> Atlas Studio. All rights reserved.</div>
-        <div class="small muted">Built with care · Single-file template</div>
-      </div>
-    </footer>
+        <div class="notice">© <span id="year"></span> Sol & Ember · Built for taste</div>
+      </footer>
+    </main>
   </div>
 
-  <!-- Simple scripts: theme toggle, contact form simulation, progressive enhancement -->
+  <!-- ===================== Scripts: menu, images, ordering, forms ===================== -->
   <script>
     // Populate year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Theme toggle (dark/light)
+    // Theme toggle: switch to light mode (simple)
     (function(){
       const btn = document.getElementById('toggleTheme');
-      const root = document.documentElement;
       let light = false;
       btn.addEventListener('click', () => {
         light = !light;
         if(light){
-          root.style.setProperty('--bg', '#f7fafc');
-          root.style.setProperty('--card', '#ffffff');
-          root.style.setProperty('--text', '#0b1320');
-          root.style.setProperty('--muted', '#374151');
-          document.body.style.background = 'linear-gradient(180deg,#f7fafc 0%, #eef2ff 60%)';
+          document.documentElement.style.setProperty('--bg','#fffaf6');
+          document.documentElement.style.setProperty('--card','#fffaf6');
+          document.documentElement.style.setProperty('--text','#23130b');
+          document.documentElement.style.setProperty('--muted','#6b7280');
+          btn.textContent = 'Dark';
           btn.setAttribute('aria-pressed','true');
         } else {
-          root.style.setProperty('--bg', '#0b1320');
-          root.style.setProperty('--card', '#0f1724');
-          root.style.setProperty('--text', '#e6eef8');
-          root.style.setProperty('--muted', '#98a0b3');
-          document.body.style.background = 'linear-gradient(180deg,#071021 0%, #071225 60%)';
+          document.documentElement.style.setProperty('--bg','#0e1412');
+          document.documentElement.style.setProperty('--card','#121815');
+          document.documentElement.style.setProperty('--text','#f7f6f4');
+          document.documentElement.style.setProperty('--muted','#98a0a1');
+          btn.textContent = 'Light';
           btn.setAttribute('aria-pressed','false');
         }
       });
     })();
 
-    // Contact form: client-side simulated submit + validation (no backend)
-    function submitForm(e){
+    // ======== AI-generated menu dataset (created programmatically) ========
+    // We generate vivid dish descriptions and consistent prices.
+    const starters = [
+      {name:"Charred Octopus", desc:"Grilled octopus, smoked paprika jus, preserved lemon, charred scallion", price:18, img: generateDishSVG('Charred Octopus','#2b1a14','#ffad87')},
+      {name:"Heirloom Tomato Carpaccio", desc:"Heirloom tomatoes, basil ash, whipped ricotta, olive oil flakes", price:14, img: generateDishSVG('Tomato Carpaccio','#163a2d','#ffd7a6')},
+      {name:"Wood-Baked Burrata", desc:"Creamy burrata, rosemary oil, hearth-toasted sour, honey glaze", price:16, img: generateDishSVG('Burrata','#2c2b26','#fff0d1')},
+      {name:"Forest Mushroom Tart", desc:"Wild mushroom compote, thyme, parmesan crisp", price:15, img: generateDishSVG('Mushroom Tart','#2a2f23','#e6ccb3')}
+    ];
+
+    const mains = [
+      {name:"Hearth-Roasted Lamb Shoulder", desc:"Slow-roasted lamb, charred root veg, lamb jus, gremolata", price:34, img: generateDishSVG('Roasted Lamb','#2a1a17','#ffdfc4')},
+      {name:"Smoked Halibut", desc:"Oak-smoked halibut, almond salsa verde, charred lemon", price:32, img: generateDishSVG('Smoked Halibut','#10303a','#cfe7df')},
+      {name:"Ember-Grilled Ribeye", desc:"18oz ribeye, marrow butter, wood-smoked chimichurri", price:46, img: generateDishSVG('Ribeye','#1e1412','#ffd7a6')},
+      {name:"Seasonal Vegetable Bake", desc:"Hearth-braised seasonal vegetables, gremolata, hazelnut crumble", price:22, img: generateDishSVG('Veg Bake','#13321b','#d7f2d8')}
+    ];
+
+    const desserts = [
+      {name:"Smoked Chocolate Fondant", desc:"Molten chocolate, smoked sea salt, burnt orange gelato", price:12, img: generateDishSVG('Chocolate Fondant','#1c0f10','#ffd7a6')},
+      {name:"Roasted Pear Tart", desc:"Caramelized pear, almond frangipane, crème fraîche", price:11, img: generateDishSVG('Pear Tart','#2a231f','#fff1d6')},
+      {name:"Honey-Toast Affogato", desc:"House honey toast, espresso, olive oil gelato", price:10, img: generateDishSVG('Affogato','#241b17','#ffe9c6')}
+    ];
+
+    // Quick order items (smaller, takeaway-friendly)
+    const orderItems = [
+      {id:1, name:"Ember Chicken Sandwich", price:14, desc:"Wood-roasted chicken, smoked aioli, pickled slaw", img: generateDishSVG('Chicken Sandwich','#251612','#ffdcb0')},
+      {id:2, name:"Hearth Pizza — Margherita", price:16, desc:"Leopold crust, blistered tomato, basil, fior di latte", img: generateDishSVG('Margherita','#2a1712','#ffd7a6')},
+      {id:3, name:"Marinated Olives & Focaccia", price:8, desc:"Olives, rosemary oil, stone-baked focaccia", img: generateDishSVG('Olives & Focaccia','#112016','#e8d6b8')},
+      {id:4, name:"Smoky Chickpea Bowl (V)", price:12, desc:"Charred chickpeas, tahini, pickled veg, farro", img: generateDishSVG('Chickpea Bowl','#11231f','#dff3e6')},
+      {id:5, name:"Seasonal Salad", price:11, desc:"Greens, roasted squash, pepitas, cider vinaigrette", img: generateDishSVG('Seasonal Salad','#1d341f','#eef7ea')}
+    ];
+
+    // Render functions
+    function mountList(elId, items){
+      const el = document.getElementById(elId);
+      el.innerHTML = '';
+      items.forEach(it=>{
+        const div = document.createElement('div');
+        div.className = 'dish fade-in';
+        div.innerHTML = `
+          <div class="img" style="background-image:url('${it.img}')" role="img" aria-label="${it.name} image"></div>
+          <div style="flex:1">
+            <h4>${it.name} <span class="price" style="float:right">${formatPrice(it.price)}</span></h4>
+            <div class="notice" style="margin-top:6px">${it.desc}</div>
+            <div style="margin-top:8px"><button class="btn btn-outline" onclick="addToOrder('${it.name}',${it.price})">Add $${it.price}</button></div>
+          </div>
+        `;
+        el.appendChild(div);
+      });
+    }
+
+    // Initially mount menu & order items
+    mountList('starters', starters);
+    mountList('mains', mains);
+    mountList('desserts', desserts);
+
+    // Render order items
+    const orderContainer = document.getElementById('orderItems');
+    orderItems.forEach(it=>{
+      const card = document.createElement('div');
+      card.className = 'card fade-in';
+      card.innerHTML = `
+        <div style="display:flex; gap:12px; align-items:center">
+          <div style="width:110px; height:90px; border-radius:12px; background-image:url('${it.img}'); background-size:cover; background-position:center"></div>
+          <div style="flex:1">
+            <div style="display:flex; justify-content:space-between; align-items:center">
+              <div style="font-weight:900">${it.name}</div>
+              <div class="price">${formatPrice(it.price)}</div>
+            </div>
+            <div class="notice" style="margin-top:6px">${it.desc}</div>
+            <div style="margin-top:10px"><button class="btn btn-primary" onclick="addToOrder('${it.name}',${it.price})">Add to Cart</button></div>
+          </div>
+        </div>
+      `;
+      orderContainer.appendChild(card);
+    });
+
+    // Simple cart logic stored in localStorage
+    let cart = JSON.parse(localStorage.getItem('se_cart')||'[]');
+    function saveCart(){ localStorage.setItem('se_cart', JSON.stringify(cart)); renderCart(); }
+    function addToOrder(name, price){
+      const item = cart.find(c=>c.name===name);
+      if(item) item.qty++;
+      else cart.push({name, price, qty:1});
+      saveCart();
+      flash(`${name} added to cart`);
+    }
+    function renderCart(){
+      const c = document.getElementById('cart');
+      c.innerHTML = '';
+      if(cart.length===0){ c.innerHTML = '<div class="notice">Your cart is empty</div>'; return; }
+      const list = document.createElement('div');
+      let total = 0;
+      cart.forEach((it, idx)=>{
+        total += it.price * it.qty;
+        const row = document.createElement('div');
+        row.style.display='flex'; row.style.justifyContent='space-between'; row.style.alignItems='center'; row.style.marginBottom='8px';
+        row.innerHTML = `<div style="flex:1"><div style="font-weight:700">${it.name}</div><div class="notice">Qty: ${it.qty}</div></div><div style="text-align:right">${formatPrice(it.price*it.qty)}<div style="margin-top:6px"><button class="btn btn-outline" onclick="removeItem(${idx})">Remove</button></div></div>`;
+        list.appendChild(row);
+      });
+      const tot = document.createElement('div');
+      tot.style.marginTop='12px'; tot.style.display='flex'; tot.style.justifyContent='space-between'; tot.style.alignItems='center';
+      tot.innerHTML = `<div style="font-weight:900">Total</div><div style="font-weight:900;color:var(--gold)">${formatPrice(total)}</div>`;
+      c.appendChild(list); c.appendChild(tot);
+    }
+    function removeItem(idx){ cart.splice(idx,1); saveCart(); }
+    function clearCart(){ cart=[]; saveCart(); flash('Cart cleared'); }
+
+    function checkout(){
+      if(cart.length===0){ flash('Cart is empty'); return; }
+      const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+      flash(`Checkout simulated — total ${formatPrice(total)}. (Demo — no payment processed)`);
+      // store as "orders" local
+      const orders = JSON.parse(localStorage.getItem('se_orders')||'[]');
+      orders.unshift({id:Date.now(), items:cart, total, ts:new Date().toISOString()});
+      localStorage.setItem('se_orders', JSON.stringify(orders));
+      cart=[];
+      saveCart();
+    }
+
+    function formatPrice(n){ return '$' + (n.toFixed ? n.toFixed(2) : (n + '.00')); }
+
+    // Reservation handler
+    function handleReserve(e){
       e.preventDefault();
-      const status = document.getElementById('formStatus');
-      status.textContent = 'Sending...';
-      const form = e.target;
-      // Basic anti-spam and validation
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const message = form.message.value.trim();
-      if(!name || !email || !message){
-        status.textContent = 'Please complete the form.';
-        status.style.color = 'var(--danger)';
-        return false;
-      }
-      // Simulate network and show a summary
-      setTimeout(() => {
-        status.style.color = 'var(--success)';
-        status.textContent = 'Thanks! Your message has been captured locally (demo).';
-        // Put the submission into localStorage (for demo or export)
-        const submissions = JSON.parse(localStorage.getItem('atlas_submissions')||'[]');
-        submissions.unshift({
-          id: Date.now(),
-          name, email, message, budget: form.budget.value, timeline: form.timeline.value, ts: new Date().toISOString()
-        });
-        localStorage.setItem('atlas_submissions', JSON.stringify(submissions));
-        form.reset();
-      }, 650);
+      const name = document.getElementById('rName').value.trim();
+      const phone = document.getElementById('rPhone').value.trim();
+      const guests = document.getElementById('rGuests').value;
+      const date = document.getElementById('rDate').value;
+      const time = document.getElementById('rTime').value;
+      if(!name || !phone || !date || !time){ document.getElementById('resStatus').textContent = 'Please complete all fields.'; return false; }
+      const res = JSON.parse(localStorage.getItem('se_reservations')||'[]');
+      res.unshift({id:Date.now(), name, phone, guests, date, time, pref:document.getElementById('rPref').value});
+      localStorage.setItem('se_reservations', JSON.stringify(res));
+      document.getElementById('resStatus').textContent = 'Reservation requested — check your email/phone for confirmation (demo).';
+      e.target.reset();
       return false;
     }
 
-    // Small accessibility: enable focus outlines for keyboard users only
-    (function(){
-      function handleFirstTab(e){
-        if(e.key === 'Tab'){
-          document.documentElement.classList.add('user-is-tabbing');
-          window.removeEventListener('keydown', handleFirstTab);
-        }
-      }
-      window.addEventListener('keydown', handleFirstTab);
+    // Quick contact handler
+    function handleContactQuick(e){
+      e.preventDefault();
+      const name = document.getElementById('cName').value.trim();
+      const email = document.getElementById('cEmail').value.trim();
+      const msg = document.getElementById('cMsg').value.trim();
+      if(!name || !email || !msg){ document.getElementById('cStatus').textContent = 'Complete all fields.'; return false; }
+      const contacts = JSON.parse(localStorage.getItem('se_contacts')||'[]');
+      contacts.unshift({id:Date.now(), name, email, msg});
+      localStorage.setItem('se_contacts', JSON.stringify(contacts));
+      document.getElementById('cStatus').textContent = 'Thanks — we received your note (demo).';
+      e.target.reset();
+      return false;
+    }
+
+    // Flash helper
+    function flash(msg){
+      const box = document.createElement('div');
+      box.textContent = msg; box.style.position='fixed'; box.style.right='18px'; box.style.bottom='18px';
+      box.style.background='linear-gradient(90deg,var(--accent),var(--accent-2))'; box.style.color='#23130b';
+      box.style.padding='10px 14px'; box.style.borderRadius='10px'; box.style.fontWeight='800'; box.style.boxShadow='0 8px 24px rgba(0,0,0,0.4)';
+      document.body.appendChild(box);
+      setTimeout(()=>box.style.opacity='0',2800);
+      setTimeout(()=>document.body.removeChild(box),3400);
+    }
+
+    // small utility to create vivid SVG images as data URIs
+    function generateDishSVG(title, bg, accent){
+      // sanitize
+      const t = encodeURIComponent(title);
+      const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='520'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='${encodeURIComponent(accent)}'/><stop offset='1' stop-color='%23000000'/></linearGradient></defs><rect width='100%' height='100%' fill='${encodeURIComponent(bg)}'/><g transform='translate(30,30)'><rect x='0' y='0' rx='20' width='740' height='460' fill='url(%23g)' opacity='0.12'/><text x='50%' y='50%' text-anchor='middle' font-family='Georgia, serif' font-size='36' fill='%23fff' font-weight='700'>${t}</text></g></svg>`;
+      return 'data:image/svg+xml;utf8,' + svg;
+    }
+
+    // Generate hero image as a composed SVG with hearth illustration + plates
+    (function mountHeroImage(){
+      const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'>
+        <rect width='100%' height='100%' fill='%230f1412'/>
+        <g transform='translate(40,40)'>
+          <rect x='0' y='0' width='1120' height='720' rx='24' fill='url(%23grad)'/>
+          <defs>
+            <linearGradient id='grad' x1='0' x2='1'><stop offset='0' stop-color='%230f1b17'/><stop offset='1' stop-color='%230b1210'/></linearGradient>
+          </defs>
+          <g transform='translate(40,40)'>
+            <rect x='0' y='0' width='620' height='420' rx='16' fill='rgba(255,255,255,0.02)'/>
+            <text x='20' y='40' fill='%23ffd7a6' font-size='22' font-weight='700'>Wood-Fired Hearth</text>
+            <g transform='translate(20,70)'>
+              <rect x='0' y='0' width='560' height='260' rx='12' fill='%230a0a09'/>
+              <g transform='translate(20,20)'>
+                <rect x='0' y='0' width='200' height='120' rx='10' fill='rgba(255,255,255,0.02)'/>
+                <rect x='220' y='0' width='300' height='120' rx='10' fill='rgba(255,255,255,0.01)'/>
+                <rect x='0' y='140' width='520' height='80' rx='10' fill='rgba(255,255,255,0.02)'/>
+              </g>
+            </g>
+
+            <g transform='translate(700,40)'>
+              <text x='0' y='30' fill='%23ffb86b' font-size='20' font-weight='800'>Tonight's Plate</text>
+              <g transform='translate(0,50)'>
+                <rect x='0' y='0' width='360' height='260' rx='12' fill='%230b1010'/>
+                <text x='180' y='130' text-anchor='middle' font-size='28' fill='%23fff' font-family='Georgia'>Charred Octopus</text>
+              </g>
+            </g>
+          </g>
+        </g>
+      </svg>`;
+      document.getElementById('heroImg').style.backgroundImage = `url('data:image/svg+xml;utf8,${svg}')`;
+      document.getElementById('heroImg').style.backgroundSize = 'cover';
     })();
+
+    // mount initial cart and UI
+    renderCart();
+
+    // populate local demo with some sample previous orders/reservations if empty (so reviewers see content)
+    (function seedDemoData(){
+      if(!localStorage.getItem('se_demo_seeded')){
+        localStorage.setItem('se_orders', JSON.stringify([{id:1,items:[{name:"Ember Chicken Sandwich",price:14,qty:2}],total:28,ts:new Date().toISOString()}]));
+        localStorage.setItem('se_reservations', JSON.stringify([{id:1,name:"Emily",phone:"945-000-1111",guests:4,date:new Date().toISOString().slice(0,10),time:"19:00",pref:"Window"}]));
+        localStorage.setItem('se_demo_seeded','1');
+      }
+    })();
+
+    // Expose small helper for demo
+    window.addToOrder = addToOrder;
+    window.clearCart = clearCart;
+    window.checkout = checkout;
   </script>
 </body>
 </html>
