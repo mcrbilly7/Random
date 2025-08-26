@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="A modern, professional single-file website template — fast, accessible, responsive, and ready for customization.">
+  <meta name="keywords" content="professional, template, single-file, responsive, modern">
+  <meta name="author" content="Nosson">
+  <title>Atlas Studio — Modern Creative Agency</title>
+
+  <!-- Theme color -->
+  <meta name="theme-color" content="#0b1320">
+
+  <!-- SEO / Social -->
+  <meta property="og:title" content="Atlas Studio — Modern Creative Agency">
+  <meta property="og:description" content="A modern, professional single-file website template — fast, accessible, responsive, and ready for customization.">
+  <meta property="og:image" content="data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect width='100%' height='100%' fill='%230b1320'/><text x='50%' y='50%' font-size='44' text-anchor='middle' fill='%23ffffff' font-family='Arial, Helvetica, sans-serif'>Atlas Studio</text></svg>">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Atlas Studio",
+    "url": "https://example.com",
+    "logo": "data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg xmlns='http://www.w3.org/2000/svg' width='400' height='80'><rect width='100%' height='100%' fill='%230b1320'/><text x='16' y='56' font-size='36' fill='%23ffffff' font-family='Arial'>Atlas Studio</text></svg>",
+    "sameAs": [],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+1-945-239-5974",
+      "contactType": "Customer service",
+      "areaServed": "US"
+    }]
+  }
+  </script>
+
+  <style>
+    /* ---- Reset & base ---- */
+    :root{
+      --bg:#0b1320; --card:#0f1724; --muted:#98a0b3; --accent:#5eead4; --accent-2:#60a5fa;
+      --glass: rgba(255,255,255,0.04); --radius:16px; --maxw:1200px;
+      --text: #e6eef8; --success:#22c55e; --danger:#ef4444;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#071021 0%, #071225 60%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:0 20px;
+    }
+    .container{max-width:var(--maxw); margin:0 auto;}
+    a{color:inherit; text-decoration:none}
+
+    /* ---- Top nav ---- */
+    header{
+      position:sticky; top:12px; z-index:40; backdrop-filter: blur(6px);
+      margin-top:6px; margin-bottom:26px;
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:12px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+    }
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo-svg{width:46px; height:46px; border-radius:10px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:flex; align-items:center; justify-content:center; font-weight:700; color:#082032; font-family:monospace;}
+    .nav-links{display:flex; gap:14px; align-items:center}
+    .nav-links a{padding:8px 12px; border-radius:10px; color:var(--muted); font-weight:600; font-size:14px}
+    .nav-links a:hover{color:var(--text); background:var(--glass)}
+    .cta{background:linear-gradient(90deg,var(--accent-2),var(--accent)); padding:8px 14px; color:#052033; border-radius:10px; font-weight:700; box-shadow: 0 6px 18px rgba(94,234,212,0.08)}
+    .nav-actions{display:flex; gap:8px; align-items:center}
+
+    /* ---- Hero ---- */
+    .hero{
+      display:grid; grid-template-columns: 1fr 460px; gap:28px; align-items:center;
+      margin:12px 0 40px;
+    }
+    .lead{font-size:14px; color:var(--accent); font-weight:700; letter-spacing:0.6px; margin-bottom:12px;}
+    h1{font-size:40px; margin:0 0 12px; line-height:1.03}
+    p.lead-text{color:var(--muted); margin:0 0 20px; max-width:72%;}
+    .actions{display:flex; gap:12px; margin-top:6px}
+    .btn{padding:12px 18px; border-radius:12px; font-weight:700; cursor:pointer; border:0}
+    .btn-outline{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,0.06)}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#052033}
+    .metrics{display:flex; gap:18px; margin-top:22px}
+    .metric{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:10px 14px; border-radius:12px; text-align:center}
+    .metric .num{font-size:18px; font-weight:800}
+
+    /* ---- Hero visual card ---- */
+    .visual-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); border-radius:20px; padding:18px; box-shadow: 0 10px 30px rgba(2,6,23,0.6); display:flex; flex-direction:column; gap:12px}
+    .visual-top{display:flex; gap:12px; align-items:center}
+    .profile{width:52px; height:52px; border-radius:12px; overflow:hidden; display:flex; align-items:center; justify-content:center; background:linear-gradient(90deg,#2dd4bf,#60a5fa)}
+    .viz-img{border-radius:12px; width:100%; height:240px; overflow:hidden; background:linear-gradient(90deg, #082032 0%, #0b3250 100%); display:flex; align-items:center; justify-content:center}
+    .viz-img img{width:100%; height:100%; object-fit:cover; display:block}
+
+    /* ---- Grid sections ---- */
+    section{margin-bottom:48px}
+    .cards{display:grid; grid-template-columns: repeat(3,1fr); gap:18px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px; border-radius:14px; min-height:140px}
+    .card h3{margin:0 0 8px}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+
+    /* ---- Portfolio grid ---- */
+    .portfolio-grid{display:grid; grid-template-columns: repeat(4,1fr); gap:12px}
+    .portfolio-item{border-radius:12px; overflow:hidden; position:relative; min-height:140px; display:flex; flex-direction:column; justify-content:flex-end; padding:12px; background-size:cover; background-position:center; box-shadow: inset 0 -60px 40px rgba(2,6,23,0.45)}
+    .portfolio-item h4{margin:0; color:white; font-size:16px}
+    .portfolio-item p{margin:6px 0 0; color:rgba(255,255,255,0.9); font-size:12px}
+
+    /* ---- Testimonials ---- */
+    .testimonials{display:flex; gap:12px}
+    .testimonial{flex:1; padding:18px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); min-height:120px}
+    .stars{color:gold; margin-bottom:8px}
+
+    /* ---- Pricing ---- */
+    .pricing{display:flex; gap:12px; align-items:stretch}
+    .plan{flex:1; padding:18px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03)}
+    .plan h4{margin:0 0 8px}
+    .feature-list{list-style:none; padding:0; margin:12px 0 0}
+    .feature-list li{margin-bottom:8px; color:var(--muted)}
+
+    /* ---- Blog previews ---- */
+    .blog-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+
+    /* ---- Contact ---- */
+    .contact-grid{display:grid; grid-template-columns:1fr 420px; gap:18px; align-items:start}
+    .form {background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px; border-radius:12px}
+    label{display:block; font-size:13px; margin-bottom:8px; color:var(--muted)}
+    input[type="text"], input[type="email"], textarea, select{
+      width:100%; padding:12px; border-radius:10px; background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--text); outline:none;
+    }
+    textarea{min-height:120px; resize:vertical}
+    .form .row{display:flex; gap:12px}
+    .small{font-size:12px; color:var(--muted)}
+
+    /* ---- Footer ---- */
+    footer{padding:28px 0; border-top:1px solid rgba(255,255,255,0.02)}
+    .footer-grid{display:flex; gap:18px; justify-content:space-between; align-items:flex-start; flex-wrap:wrap}
+
+    /* ---- Responsiveness ---- */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr}
+      .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .blog-grid{grid-template-columns:repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      h1{font-size:30px}
+      .nav-links{display:none}
+      .portfolio-grid{grid-template-columns:repeat(1,1fr)}
+      .cards{grid-template-columns:repeat(1,1fr)}
+      .blog-grid{grid-template-columns:repeat(1,1fr)}
+    }
+
+    /* ---- small UX flourishes ---- */
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03); color:var(--accent); font-weight:700; font-size:12px}
+    .muted{color:var(--muted)}
+    .glass{background:var(--glass)}
+    .shadow-soft{box-shadow: 0 8px 30px rgba(2,6,23,0.6)}
+    .rounded{border-radius:12px}
+    .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace}
+    .center{display:flex; align-items:center; justify-content:center}
+    .sr-only{position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="brand">
+          <div class="logo-svg" aria-hidden="true">A</div>
+          <div>
+            <div style="font-weight:800">Atlas Studio</div>
+            <div style="font-size:12px;color:var(--muted)">Design · Digital · Growth</div>
+          </div>
+        </div>
+
+        <div class="nav-links" role="menubar" aria-label="Primary">
+          <a href="#services" role="menuitem">Services</a>
+          <a href="#portfolio" role="menuitem">Portfolio</a>
+          <a href="#pricing" role="menuitem">Pricing</a>
+          <a href="#blog" role="menuitem">Blog</a>
+          <a href="#contact" role="menuitem">Contact</a>
+        </div>
+
+        <div class="nav-actions">
+          <button id="toggleTheme" title="Toggle dark/light" class="btn btn-outline" aria-pressed="false">Toggle</button>
+          <a class="cta" href="#contact">Get Started</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <div class="lead">GLOBAL · STRATEGIC · HUMAN</div>
+          <h1 id="hero-title">We design products & experiences that move people —</h1>
+          <p class="lead-text">Atlas Studio is a full-stack creative and product studio. We build brand identities, web and mobile products, and growth strategies for startups and enterprise teams.</p>
+
+          <div class="actions" role="group" aria-label="Primary actions">
+            <a class="btn btn-primary" href="#contact">Start a Project</a>
+            <button class="btn btn-outline" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Explore Demo</button>
+          </div>
+
+          <div class="metrics" role="list" aria-label="Key metrics">
+            <div class="metric" role="listitem">
+              <div class="num">250+</div>
+              <div class="muted">Projects Completed</div>
+            </div>
+            <div class="metric" role="listitem">
+              <div class="num">95%</div>
+              <div class="muted">Client Satisfaction</div>
+            </div>
+            <div class="metric" role="listitem">
+              <div class="num">48</div>
+              <div class="muted">Countries Served</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual / demo card -->
+        <aside class="visual-card" aria-hidden="false" aria-label="Product demo card">
+          <div class="visual-top">
+            <div class="profile" title="Atlas Studio">
+              <!-- Tiny generated logo (SVG inline) -->
+              <svg width="40" height="40" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="48" height="48" rx="10" fill="#fff" opacity="0.08"/>
+                <g fill="#082033" font-family="monospace" font-weight="700"><text x="9" y="31" font-size="20">A</text></g>
+              </svg>
+            </div>
+            <div>
+              <div style="font-weight:800">Atlas Prototype</div>
+              <div class="muted" style="font-size:13px">Interactive product preview</div>
+            </div>
+          </div>
+
+          <div class="viz-img" id="demo">
+            <!-- Generated abstract SVG illustration as data URI -->
+            <img alt="Abstract interface mockup" src="data:image/svg+xml;utf8,
+            <svg xmlns='http://www.w3.org/2000/svg' width='760' height='420' viewBox='0 0 760 420'>
+              <defs>
+                <linearGradient id='g1' x1='0' x2='1'><stop offset='0' stop-color='%230b3250'/><stop offset='1' stop-color='%23082b3f'/></linearGradient>
+                <linearGradient id='g2' x1='0' x2='1'><stop offset='0' stop-color='%235eead4'/><stop offset='1' stop-color='%2360a5fa'/></linearGradient>
+              </defs>
+              <rect width='100%' height='100%' fill='%23071a2a'/>
+              <g transform='translate(28,28)'>
+                <rect x='0' y='0' width='704' height='364' rx='18' fill='url(%23g1)' opacity='0.9'/>
+                <rect x='24' y='24' width='656' height='84' rx='10' fill='rgba(255,255,255,0.06)'/>
+                <rect x='24' y='124' width='420' height='236' rx='10' fill='rgba(255,255,255,0.03)'/>
+                <rect x='456' y='124' width='224' height='100' rx='10' fill='rgba(255,255,255,0.03)'/>
+                <circle cx='560' cy='200' r='36' fill='url(%23g2)'/>
+                <rect x='456' y='240' width='224' height='100' rx='10' fill='rgba(255,255,255,0.03)'/>
+                <g fill='rgba(255,255,255,0.06)'><rect x='48' y='36' width='120' height='12' rx='6'/><rect x='180' y='36' width='120' height='12' rx='6'/></g>
+                <g fill='rgba(255,255,255,0.12)'><rect x='48' y='144' width='384' height='12' rx='6'/><rect x='48' y='168' width='320' height='12' rx='6'/></g>
+              </g>
+            </svg>">
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="muted small">Live prototype snapshot</div>
+            <div style="display:flex; gap:8px">
+              <div class="badge">SaaS</div>
+              <div class="badge">Product Design</div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Services -->
+      <section id="services" aria-labelledby="services-title">
+        <div style="display:flex; justify-content:space-between; align-items:end; gap:12px; flex-wrap:wrap;">
+          <h2 id="services-title">Services we offer</h2>
+          <div class="small muted">Tailored strategies, full delivery</div>
+        </div>
+        <div class="cards" style="margin-top:12px">
+          <div class="card">
+            <h3>Product Design</h3>
+            <p>Create intuitive, beautiful products with UX research, prototyping, and visual systems.</p>
+            <div style="margin-top:12px"><strong>Deliverables:</strong> User research, wireframes, prototype, design system</div>
+          </div>
+          <div class="card">
+            <h3>Brand & Identity</h3>
+            <p>Logo systems, brand guidelines, messaging, and visual storytelling for consistent impact.</p>
+            <div style="margin-top:12px"><strong>Deliverables:</strong> Logo, tokens, typography, usage guide</div>
+          </div>
+          <div class="card">
+            <h3>Engineering</h3>
+            <p>Modern web apps with focus on performance, accessibility, and maintainability.</p>
+            <div style="margin-top:12px"><strong>Deliverables:</strong> Production code, CI, documentation</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio -->
+      <section id="portfolio" aria-labelledby="portfolio-title">
+        <div style="display:flex; justify-content:space-between; align-items:end;">
+          <h2 id="portfolio-title">Selected Work</h2>
+          <a class="small muted" href="#portfolio">View case studies →</a>
+        </div>
+        <div class="portfolio-grid" style="margin-top:12px">
+          <!-- Items use generated SVG backgrounds (data URIs) -->
+          <div class="portfolio-item" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22300%22><defs><linearGradient id=%22g1%22 x1=%220%22 x2=%221%22><stop offset=%220%25%22 stop-color=%22%230b3250%22/><stop offset=%22100%25%22 stop-color=%22%23082b3f%22/></linearGradient></defs><rect width=%22500%22 height=%22300%22 fill=%22url(%23g1)%22/><g fill=%22rgba(255,255,255,0.1)%22><rect x=%2224%22 y=%2280%22 width=%22452%22 height=%2260%22 rx=%2212%22/></g></svg>');">
+            <h4>Commerce Platform</h4>
+            <p>Headless commerce for a global retailer</p>
+          </div>
+
+          <div class="portfolio-item" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22300%22><rect width=%22500%22 height=%22300%22 fill=%22%230b1320%22/><g><circle cx=%22120%22 cy=%22120%22 r=%2280%22 fill=%22%235eead4%22 opacity=%220.08%22/></g></svg>');">
+            <h4>Wellness App</h4>
+            <p>Subscription product with habit tracking</p>
+          </div>
+
+          <div class="portfolio-item" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22300%22><rect width=%22500%22 height=%22300%22 fill=%22%230b2a3a%22/><g><rect x=%2240%22 y=%2240%22 width=%22420%22 height=%22220%22 rx=%2216%22 fill=%22rgba(255,255,255,0.02)%22/></g></svg>');">
+            <h4>Finance Dashboard</h4>
+            <p>Real-time analytics for traders</p>
+          </div>
+
+          <div class="portfolio-item" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22300%22><rect width=%22500%22 height=%22300%22 fill=%22%23082b3f%22/><g fill=%22rgba(255,255,255,0.07)%22><rect x=%2260%22 y=%2296%22 width=%22380%22 height=%2280%22 rx=%2210%22/></g></svg>');">
+            <h4>Marketing Campaign</h4>
+            <p>Brand lift across platforms</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section aria-labelledby="testimonials-title">
+        <div style="display:flex; justify-content:space-between; align-items:end;">
+          <h2 id="testimonials-title">What clients say</h2>
+          <div class="small muted">Trusted by founders and teams</div>
+        </div>
+
+        <div class="testimonials" style="margin-top:12px">
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <div style="font-weight:800">"Turned our idea into a best-in-class product."</div>
+            <div class="muted small">— Maya T., Founder, Luma Health</div>
+          </div>
+
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <div style="font-weight:800">"Fast, reliable, and incredibly thoughtful."</div>
+            <div class="muted small">— Jorge R., VP Product, Marketify</div>
+          </div>
+
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <div style="font-weight:800">"Our conversion increased 38% after relaunch."</div>
+            <div class="muted small">— Priya K., CMO, FitWell</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <section id="pricing" aria-labelledby="pricing-title">
+        <h2 id="pricing-title">Pricing</h2>
+        <div class="pricing" style="margin-top:12px">
+          <div class="plan">
+            <h4>Starter</h4>
+            <div style="font-weight:800; font-size:20px">$2,500 <span class="muted" style="font-weight:700; font-size:12px">one-time</span></div>
+            <ul class="feature-list">
+              <li>Discovery & prototype</li>
+              <li>2 week timeline</li>
+              <li>Design system (basic)</li>
+            </ul>
+            <div style="margin-top:12px"><button class="btn btn-primary">Book Starter</button></div>
+          </div>
+
+          <div class="plan">
+            <h4>Growth</h4>
+            <div style="font-weight:800; font-size:20px">$9,500 <span class="muted" style="font-weight:700; font-size:12px">project</span></div>
+            <ul class="feature-list">
+              <li>Full product design</li>
+              <li>Engineering handoff</li>
+              <li>6–10 week timeline</li>
+            </ul>
+            <div style="margin-top:12px"><button class="btn btn-primary">Book Growth</button></div>
+          </div>
+
+          <div class="plan">
+            <h4>Enterprise</h4>
+            <div style="font-weight:800; font-size:20px">Custom</div>
+            <ul class="feature-list">
+              <li>Dedicated team</li>
+              <li>SLAs & integrations</li>
+              <li>Long-term partnership</li>
+            </ul>
+            <div style="margin-top:12px"><button class="btn btn-outline">Talk to Sales</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog -->
+      <section id="blog" aria-labelledby="blog-title">
+        <div style="display:flex; justify-content:space-between; align-items:end;">
+          <h2 id="blog-title">From our lab</h2>
+          <a class="small muted" href="#blog">View all articles →</a>
+        </div>
+
+        <div class="blog-grid" style="margin-top:12px">
+          <article class="card" aria-labelledby="b1">
+            <h3 id="b1">Design systems that scale</h3>
+            <p class="muted">How to build reusable tokens that survive teams and time.</p>
+            <div style="margin-top:12px" class="small muted">Oct 14, 2024 · 6 min read</div>
+          </article>
+
+          <article class="card" aria-labelledby="b2">
+            <h3 id="b2">Performance-first engineering</h3>
+            <p class="muted">Tactics for sub-200ms interactive experiences on web.</p>
+            <div style="margin-top:12px" class="small muted">Sep 04, 2024 · 8 min read</div>
+          </article>
+
+          <article class="card" aria-labelledby="b3">
+            <h3 id="b3">Scaling user research</h3>
+            <p class="muted">Balancing speed and depth in early-stage product discovery.</p>
+            <div style="margin-top:12px" class="small muted">Jul 11, 2024 · 5 min read</div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Let's talk about your project</h2>
+        <div class="contact-grid" style="margin-top:12px">
+          <form class="form" id="contactForm" onsubmit="return submitForm(event)" aria-label="Contact form">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your full name" required>
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" required>
+
+            <div class="row" style="margin-top:12px">
+              <div style="flex:1">
+                <label for="budget">Budget</label>
+                <select id="budget" name="budget">
+                  <option value="$2500">$2,500+</option>
+                  <option value="$9500">$9,500+</option>
+                  <option value="custom">Custom enterprise</option>
+                </select>
+              </div>
+              <div style="flex:1">
+                <label for="timeline">Timeline</label>
+                <select id="timeline" name="timeline">
+                  <option value="2-4 weeks">2–4 weeks</option>
+                  <option value="1-3 months">1–3 months</option>
+                  <option value="3+ months">3+ months</option>
+                </select>
+              </div>
+            </div>
+
+            <label for="message" style="margin-top:12px">Project summary</label>
+            <textarea id="message" name="message" placeholder="Briefly describe your project" required></textarea>
+
+            <div style="display:flex; gap:12px; margin-top:12px; align-items:center">
+              <button class="btn btn-primary" type="submit">Send message</button>
+              <div id="formStatus" class="small muted" aria-live="polite"></div>
+            </div>
+
+            <div class="small muted" style="margin-top:12px">By sending this message you agree to our <a href="#privacy" class="muted">privacy policy</a>.</div>
+          </form>
+
+          <aside style="padding:18px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));">
+            <div style="font-weight:800">Contact</div>
+            <div class="muted small" style="margin-top:8px">Phone</div>
+            <div style="margin-bottom:8px">+1 (945) 239-5974</div>
+
+            <div class="muted small" style="margin-top:8px">Email</div>
+            <div style="margin-bottom:8px">hello@atlas.studio</div>
+
+            <div class="muted small" style="margin-top:8px">Address</div>
+            <div class="muted">Dallas, TX · Remote</div>
+
+            <div style="margin-top:18px">
+              <div class="mono small muted">We're available Mon–Fri • 9am–6pm CST</div>
+            </div>
+
+            <div style="margin-top:18px">
+              <div style="font-weight:700; font-size:13px">Follow</div>
+              <div style="display:flex; gap:8px; margin-top:8px">
+                <a class="badge" href="#" aria-label="LinkedIn">LinkedIn</a>
+                <a class="badge" href="#" aria-label="Dribbble">Dribbble</a>
+                <a class="badge" href="#" aria-label="GitHub">GitHub</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Accessibility / performance notes -->
+      <section aria-hidden="true" style="opacity:0.9">
+        <div class="card">
+          <h3>Built for accessibility</h3>
+          <p class="muted">Keyboard focus states, aria labels, semantic markup, color contrast, and screen reader friendliness are included by default. This single-file template is optimized for performance — minimal DOM, no external requests, and inline images to avoid network latency.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-grid">
+        <div>
+          <div style="font-weight:900">Atlas Studio</div>
+          <div class="muted small">Design · Digital · Growth</div>
+        </div>
+
+        <div style="display:flex; gap:24px; align-items:start; flex-wrap:wrap">
+          <div>
+            <div style="font-weight:700">Services</div>
+            <div class="muted small">Product · Brand · Engineering</div>
+          </div>
+
+          <div>
+            <div style="font-weight:700">Company</div>
+            <div class="muted small">Careers · Privacy · Terms</div>
+          </div>
+
+          <div>
+            <div style="font-weight:700">Contact</div>
+            <div class="muted small">hello@atlas.studio</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
+        <div class="small muted">© <span id="year"></span> Atlas Studio. All rights reserved.</div>
+        <div class="small muted">Built with care · Single-file template</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Simple scripts: theme toggle, contact form simulation, progressive enhancement -->
+  <script>
+    // Populate year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle (dark/light)
+    (function(){
+      const btn = document.getElementById('toggleTheme');
+      const root = document.documentElement;
+      let light = false;
+      btn.addEventListener('click', () => {
+        light = !light;
+        if(light){
+          root.style.setProperty('--bg', '#f7fafc');
+          root.style.setProperty('--card', '#ffffff');
+          root.style.setProperty('--text', '#0b1320');
+          root.style.setProperty('--muted', '#374151');
+          document.body.style.background = 'linear-gradient(180deg,#f7fafc 0%, #eef2ff 60%)';
+          btn.setAttribute('aria-pressed','true');
+        } else {
+          root.style.setProperty('--bg', '#0b1320');
+          root.style.setProperty('--card', '#0f1724');
+          root.style.setProperty('--text', '#e6eef8');
+          root.style.setProperty('--muted', '#98a0b3');
+          document.body.style.background = 'linear-gradient(180deg,#071021 0%, #071225 60%)';
+          btn.setAttribute('aria-pressed','false');
+        }
+      });
+    })();
+
+    // Contact form: client-side simulated submit + validation (no backend)
+    function submitForm(e){
+      e.preventDefault();
+      const status = document.getElementById('formStatus');
+      status.textContent = 'Sending...';
+      const form = e.target;
+      // Basic anti-spam and validation
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      if(!name || !email || !message){
+        status.textContent = 'Please complete the form.';
+        status.style.color = 'var(--danger)';
+        return false;
+      }
+      // Simulate network and show a summary
+      setTimeout(() => {
+        status.style.color = 'var(--success)';
+        status.textContent = 'Thanks! Your message has been captured locally (demo).';
+        // Put the submission into localStorage (for demo or export)
+        const submissions = JSON.parse(localStorage.getItem('atlas_submissions')||'[]');
+        submissions.unshift({
+          id: Date.now(),
+          name, email, message, budget: form.budget.value, timeline: form.timeline.value, ts: new Date().toISOString()
+        });
+        localStorage.setItem('atlas_submissions', JSON.stringify(submissions));
+        form.reset();
+      }, 650);
+      return false;
+    }
+
+    // Small accessibility: enable focus outlines for keyboard users only
+    (function(){
+      function handleFirstTab(e){
+        if(e.key === 'Tab'){
+          document.documentElement.classList.add('user-is-tabbing');
+          window.removeEventListener('keydown', handleFirstTab);
+        }
+      }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
+</body>
+</html>
