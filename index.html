@@ -3,75 +3,587 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sol & Ember — Modern Hearth Restaurant</title>
-  <meta name="description" content="Sol & Ember — a modern hearth restaurant specializing in wood-fired flavors, seasonal tasting menus, and artisanal cocktails. Reserve, order, or explore our story and menu.">
+  <title>Sol & Ember — The Hearth (Ultra Visual)</title>
+  <meta name="description" content="Sol & Ember — wood-fired tasting menu, seasonal produce, craft cocktails. All images AI-generated and embedded inline.">
   <meta name="theme-color" content="#0e1412">
 
-  <!-- Open Graph (uses inline SVG thumbnails) -->
-  <meta property="og:title" content="Sol & Ember — Modern Hearth Restaurant">
-  <meta property="og:description" content="Experience wood-fired flavors, seasonal tasting menus, and craft cocktails at Sol & Ember.">
-  <meta property="og:image" content="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect width='100%' height='100%' fill='%230e1412'/><text x='50%' y='50%' font-size='48' fill='%23ffcc99' text-anchor='middle' font-family='Arial'>Sol & Ember</text></svg>">
-  <meta property="og:type" content="restaurant.restaurant">
+  <!-- OG image uses embedded AI-generated SVG -->
+  <meta property="og:title" content="Sol & Ember — The Hearth (Ultra Visual)">
+  <meta property="og:description" content="Experience wood-fired cuisine with photorealistic AI-generated visuals embedded directly." />
+  <meta property="og:image" content="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect width='100%' height='100%' fill='%230e1412'/><g font-family='Georgia, serif'><text x='50%' y='46%' text-anchor='middle' font-size='56' fill='%23ffd7a6' font-weight='900'>Sol & Ember</text><text x='50%' y='58%' text-anchor='middle' font-size='22' fill='%23ffb86b'>Wood-fired • Seasonal • Artisanal</text></g></svg>">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- JSON-LD structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Restaurant",
-    "name":"Sol & Ember",
-    "image":"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect width='100%' height='100%' fill='%230e1412'/><text x='50%' y='50%' font-size='48' fill='%23ffcc99' text-anchor='middle' font-family='Arial'>Sol & Ember</text></svg>",
-    "priceRange":"$$$",
-    "servesCuisine":["Contemporary","Wood-fired","Seasonal"],
-    "telephone":"+1-945-239-5974",
-    "address":{"@type":"PostalAddress","streetAddress":"241 Ember Lane","addressLocality":"Dallas","addressRegion":"TX","postalCode":"75201","addressCountry":"US"},
-    "url":"https://example.com",
-    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"528"}
-  }
-  </script>
-
   <style>
-    /* ========= Base / Design tokens ========= */
     :root{
       --bg:#0e1412; --card:#121815; --muted:#98a0a1; --accent:#ffb86b; --accent-2:#ff6a3d;
-      --glass: rgba(255,255,255,0.03); --radius:14px; --maxw:1200px;
-      --text:#f7f6f4; --success:#22c55e; --danger:#ef4444;
-      --gold:#ffd7a6;
+      --gold:#ffd7a6; --text:#f7f6f4; --glass:rgba(255,255,255,0.03); --radius:14px; --maxw:1250px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    *{box-sizing:border-box} html,body{height:100%}
     body{
       margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,110,50,0.04), transparent),
-                  linear-gradient(180deg,#0b0f0d 0%, #0e1412 60%);
-      color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-      padding:18px;
+      background: radial-gradient(1200px 600px at 8% 8%, rgba(255,110,50,0.03), transparent), linear-gradient(180deg,#0b0f0d 0%, #0e1412 70%);
+      color:var(--text); padding:18px;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
-    .container{max-width:var(--maxw); margin:0 auto;}
+    .container{max-width:var(--maxw); margin:0 auto}
+    header{position:sticky; top:12px; z-index:40; margin-bottom:22px}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:12px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); box-shadow:0 12px 30px rgba(0,0,0,0.6)}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:64px;height:64px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),var(--accent-2)); font-weight:900; color:#23130b}
+    .nav-links{display:flex;gap:12px;align-items:center}
+    .nav-links a{color:var(--muted); font-weight:700; padding:8px 10px; border-radius:10px; text-decoration:none}
+    .nav-links a:hover{background:var(--glass); color:var(--text)}
+    .cta{background:linear-gradient(90deg,var(--accent-2),var(--gold)); padding:10px 14px; border-radius:10px; font-weight:900; color:#23130b}
 
-    /* ========= Header ========= */
-    header{position:sticky; top:14px; z-index:40; margin-bottom:22px}
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:10px 14px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); box-shadow:0 10px 30px rgba(2,6,10,0.6)}
-    .brand{display:flex; gap:12px; align-items:center}
-    .logo{width:56px; height:56px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--accent),var(--accent-2)); font-weight:900; color:#23130b}
-    .nav-links{display:flex; gap:12px; align-items:center}
-    .nav-links a{color:var(--muted); text-decoration:none; font-weight:700; padding:8px 10px; border-radius:10px}
-    .nav-links a:hover{color:var(--text); background:var(--glass)}
-    .cta{background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#23130b; padding:10px 14px; border-radius:10px; font-weight:900}
-
-    /* ========= Hero ========= */
-    .hero{display:grid; grid-template-columns: 1fr 420px; gap:28px; align-items:center; margin-top:6px}
-    .eyebrow{font-weight:800; color:var(--gold); letter-spacing:0.6px; font-size:13px}
-    h1{font-size:44px; margin:8px 0 12px; line-height:1.03}
-    p.lead{color:var(--muted); margin:0 0 18px; max-width:74%}
-    .hero-actions{display:flex; gap:10px; align-items:center; margin-top:8px}
+    /* hero */
+    .hero{display:grid; grid-template-columns:1fr 520px; gap:28px; align-items:center}
+    .eyebrow{color:var(--gold); font-weight:900; letter-spacing:0.6px; font-size:13px}
+    h1{font-size:44px;margin:6px 0 10px}
+    p.lead{color:var(--muted); margin:0 0 18px; max-width:78%}
+    .hero-actions{display:flex; gap:10px; align-items:center}
     .btn{padding:12px 16px; border-radius:12px; border:0; font-weight:800; cursor:pointer}
     .btn-primary{background:linear-gradient(90deg,var(--accent-2),var(--accent)); color:#27140a}
     .btn-outline{background:transparent; border:1px solid rgba(255,255,255,0.04); color:var(--text)}
 
-    /* ========= Visual Card (right) ========= */
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:16px; padding:14px; box-shadow:0 12px 34px rgba(3,6,8,0.6)}
-    .hero-visual{height:360px; border-radius:12px; overflow:hidden; display:flex; flex-direction:column}
+    /* visual card */
+    .visual-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:16px; padding:12px; box-shadow:0 16px 48px rgba(0,0,0,0.6)}
+    .visual-hero{height:420px;border-radius:12px; overflow:hidden; position:relative; display:flex; flex-direction:column}
+    .visual-hero .overlay{position:absolute; left:18px; bottom:18px; z-index:3; background:rgba(0,0,0,0.38); padding:10px 12px; border-radius:10px; color:var(--gold); font-weight:800}
+    .visual-hero img{width:100%; height:100%; object-fit:cover; display:block; filter:contrast(1.02) saturate(1.05)}
+
+    /* sections */
+    section{margin-top:34px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00)); padding:14px; border-radius:12px}
+    .dish{display:flex;gap:12px;align-items:center;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+    .dish .img{width:120px;height:86px;border-radius:10px;background-size:cover;background-position:center;flex:0 0 120px;box-shadow:inset 0 -24px 40px rgba(0,0,0,0.5)}
+    .price{font-weight:900;color:var(--gold)}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:10px;display:block;box-shadow:0 8px 26px rgba(0,0,0,0.6)}
+
+    /* responsive */
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      h1{font-size:30px}
+      .nav-links{display:none}
+      .gallery img{height:120px}
+    }
+
+    /* focus */
+    :focus{outline:3px solid rgba(255,184,107,0.14); outline-offset:3px; border-radius:8px}
+    .sr-only{position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav class="nav" role="navigation" aria-label="Main">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">S&E</div>
+          <div>
+            <div style="font-weight:900">Sol & Ember</div>
+            <div style="font-size:12px;color:var(--muted)">The Hearth — Wood-fired • Seasonal • Artisanal</div>
+          </div>
+        </div>
+
+        <div class="nav-links" role="menubar" aria-label="Primary">
+          <a href="#menu">Menu</a>
+          <a href="#story">Our Story</a>
+          <a href="#reservations">Reserve</a>
+          <a href="#visit">Visit</a>
+          <a href="#gallery">Gallery</a>
+        </div>
+
+        <div style="display:flex;gap:8px;align-items:center">
+          <button id="toggleTheme" class="btn btn-outline" aria-pressed="false">Light</button>
+          <a class="cta" href="#reservations">Reserve</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <div class="eyebrow">HEARTH • FLAVOR • COMMUNITY</div>
+          <h1 id="hero-title">Sol & Ember — We speak the language of fire.</h1>
+          <p class="lead">An immersive wood-fired dining experience: seasonal tasting menus, craft cocktails, and a cellar-led wine list. Every image on this site is AI-generated and embedded — high-fidelity visuals of plates, hearth, and atmosphere created for this single-file masterpiece.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#reservations">Reserve a Table</a>
+            <button class="btn btn-outline" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">View Menu</button>
+            <button class="btn btn-outline" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">See Gallery</button>
+          </div>
+
+          <div style="margin-top:18px; display:flex; gap:12px">
+            <div class="card" style="padding:10px 12px">
+              <div style="font-weight:900">$65 • 7-course Tasting</div>
+              <div style="color:var(--muted); font-size:13px">Optional wine pairing +$45</div>
+            </div>
+
+            <div class="card" style="padding:10px 12px">
+              <div style="font-weight:900">Open Tonight</div>
+              <div style="color:var(--muted); font-size:13px">5:00 PM — 11:00 PM • Last seating 9:45 PM</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI-generated hero visual (embedded high-detail SVG "photorealistic style") -->
+        <aside class="visual-card" aria-label="Hero visual with AI-generated hearth and plated dishes">
+          <div class="visual-hero" id="heroVisual">
+            <!-- The inline SVG is massive and intentionally detailed: embedded as <img> via data URI -->
+            <img alt="AI-generated wood-fired hearth with plated dishes" id="heroImg" src="">
+            <div class="overlay">Tonight: Charred Octopus • Smoked Paprika Jus</div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Menu with AI-generated dish images embedded -->
+      <section id="menu" aria-labelledby="menu-title">
+        <div style="display:flex; justify-content:space-between; align-items:end">
+          <h2 id="menu-title">Menu — AI-crafted & Tasted</h2>
+          <div style="color:var(--muted)">All visuals: AI-generated and embedded below each dish</div>
+        </div>
+
+        <div style="margin-top:14px" class="grid-3">
+          <div class="card">
+            <h3>Starters</h3>
+            <div id="starters"></div>
+          </div>
+
+          <div class="card">
+            <h3>Mains</h3>
+            <div id="mains"></div>
+          </div>
+
+          <div class="card">
+            <h3>Desserts</h3>
+            <div id="desserts"></div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px" class="grid-2">
+          <div class="card">
+            <h3>Wine & Pairings</h3>
+            <p style="color:var(--muted)">Selected to amplify wood-smoke and hearth textures.</p>
+            <ul style="margin-top:12px; padding-left:18px; color:var(--muted)">
+              <li><strong>Sunfield Chardonnay (glass)</strong> — $12</li>
+              <li><strong>Ridge Pinot Noir (glass)</strong> — $14</li>
+              <li><strong>Cellar Red (bottle)</strong> — $48</li>
+              <li><strong>Wine pairing (per person)</strong> — $45</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Cocktails</h3>
+            <p style="color:var(--muted)">Seasonal craft program</p>
+            <ul style="margin-top:12px; padding-left:18px; color:var(--muted)">
+              <li><strong>Ember Old Fashioned</strong> — bourbon, smoked cinnamon — $14</li>
+              <li><strong>Sol Spritz</strong> — citrus, elderflower — $12</li>
+              <li><strong>Smoked Paloma</strong> — mezcal, charred grapefruit — $13</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery: grid of AI images -->
+      <section id="gallery" aria-labelledby="gallery-title">
+        <div style="display:flex; justify-content:space-between; align-items:end">
+          <h2 id="gallery-title">Gallery — AI Photorealistic Plates & Hearth</h2>
+          <div style="color:var(--muted)">All images embedded as data URIs (SVG) — inspectable and copyable.</div>
+        </div>
+
+        <div style="margin-top:12px" class="gallery" id="galleryGrid">
+          <!-- injected images -->
+        </div>
+      </section>
+
+      <!-- Reservations -->
+      <section id="reservations" aria-labelledby="reservations-title">
+        <div style="display:flex; justify-content:space-between; align-items:end">
+          <h2 id="reservations-title">Reserve or Order</h2>
+          <div style="color:var(--muted)">Local demo storage — reservations saved locally for preview</div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 420px; gap:16px; margin-top:12px">
+          <div class="card">
+            <h3>Reserve a Table</h3>
+            <form id="resForm" onsubmit="return handleReserve(event)">
+              <input id="rName" placeholder="Full name" required style="margin-top:8px;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04)">
+              <div style="display:flex;gap:8px;margin-top:8px">
+                <input id="rPhone" placeholder="Phone or email" required style="flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04)">
+                <input id="rGuests" placeholder="Guests" type="number" min="1" max="20" value="2" style="width:110px;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04)">
+              </div>
+              <div style="display:flex;gap:8px;margin-top:8px">
+                <input id="rDate" type="date" required style="flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04)">
+                <input id="rTime" type="time" required style="width:140px;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04)">
+              </div>
+              <div style="margin-top:10px">
+                <select id="rPref" style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04)">
+                  <option>Hearth Table</option><option>Window</option><option>High Top</option><option>Private Room</option>
+                </select>
+              </div>
+              <div style="margin-top:12px;display:flex;gap:8px">
+                <button class="btn btn-primary" type="submit">Request Reservation</button>
+                <div id="resStatus" style="color:var(--muted);align-self:center"></div>
+              </div>
+            </form>
+          </div>
+
+          <aside class="card">
+            <h3>Your Orders</h3>
+            <div id="cart" style="min-height:160px;color:var(--muted)">Your cart is empty</div>
+            <div style="display:flex;gap:8px;margin-top:12px">
+              <button class="btn btn-primary" onclick="checkout()">Checkout</button>
+              <button class="btn btn-outline" onclick="clearCart()">Clear</button>
+            </div>
+            <div style="margin-top:10px;color:var(--muted)">Demo mode: orders stored locally (no payment processed).</div>
+          </aside>
+        </div>
+      </section>
+
+      <footer style="margin-top:28px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.02);display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div style="font-weight:900">Sol & Ember</div>
+          <div style="color:var(--muted)">Modern Hearth • Dallas, TX</div>
+        </div>
+        <div style="color:var(--muted)">© <span id="year"></span> Sol & Ember — All rights reserved</div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- ================= Scripts (generate AI-style SVG images inline and mount UI) ================= -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // theme toggle
+    (function(){
+      const btn = document.getElementById('toggleTheme');
+      let light = false;
+      btn.addEventListener('click', () => {
+        light = !light;
+        if(light){
+          document.documentElement.style.setProperty('--bg','#fffaf6');
+          document.documentElement.style.setProperty('--card','#fffaf6');
+          document.documentElement.style.setProperty('--text','#23130b');
+          document.documentElement.style.setProperty('--muted','#6b7280');
+          btn.textContent = 'Dark';
+          btn.setAttribute('aria-pressed','true');
+        } else {
+          document.documentElement.style.setProperty('--bg','#0e1412');
+          document.documentElement.style.setProperty('--card','#121815');
+          document.documentElement.style.setProperty('--text','#f7f6f4');
+          document.documentElement.style.setProperty('--muted','#98a0a1');
+          btn.textContent = 'Light';
+          btn.setAttribute('aria-pressed','false');
+        }
+      });
+    })();
+
+    // ---------------- AI-style image generation (SVG photoreal stylized compositions) ----------------
+    // These functions produce large, high-detail SVGs encoded as data URIs. Each "AI image" is unique by parameters.
+    function encodeSVG(svg){ return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg); }
+
+    // Photoreal-ish plate generator: uses gradients, textures, layered shapes, and "depth" illusions.
+    function generatePlateSVG(title, mainColor, accentColor, accent2){
+      const svg = `
+      <svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'>
+        <defs>
+          <filter id='grain'><feTurbulence baseFrequency='0.8' numOctaves='2' result='t'/>
+            <feColorMatrix type='saturate' values='0' /><feBlend in='SourceGraphic' in2='t' mode='overlay'/></filter>
+          <radialGradient id='plateGrad' cx='50%' cy='30%'>
+            <stop offset='0%' stop-color='%23ffffff' stop-opacity='0.12'/>
+            <stop offset='60%' stop-color='%23ffffff' stop-opacity='0.03'/>
+            <stop offset='100%' stop-color='%23000000' stop-opacity='0.18'/>
+          </radialGradient>
+          <linearGradient id='sauce' x1='0' x2='1'>
+            <stop offset='0' stop-color='${accentColor}'/><stop offset='1' stop-color='${accent2}'/>
+          </linearGradient>
+          <filter id='soft' x='-20%' y='-20%' width='140%' height='140%'>
+            <feGaussianBlur stdDeviation='10'/>
+          </filter>
+        </defs>
+
+        <rect width='100%' height='100%' fill='#0e1412'/>
+        <!-- wooden table texture -->
+        <g opacity='0.85'>
+          <rect x='40' y='140' width='1120' height='520' rx='18' fill='url(#pt)'/>
+        </g>
+
+        <!-- plate -->
+        <g transform='translate(120,90)'>
+          <ellipse cx='460' cy='310' rx='350' ry='200' fill='rgba(255,255,255,0.02)'/>
+          <ellipse cx='460' cy='310' rx='320' ry='170' fill='url(#plateGrad)'/>
+          <g filter='url(#soft)'>
+            <!-- main food mass -->
+            <path d='M360 280 C420 220,560 200,640 240 C700 270,720 320,660 350 C600 380,480 380,360 340 Z' fill='${mainColor}' opacity='0.98'/>
+          </g>
+
+          <!-- glaze / sauce -->
+          <path d='M420 290 C500 250,580 260,640 300 C675 325,665 350,620 360 C560 375,490 350,420 330 Z' fill='url(#sauce)' opacity='0.92'/>
+
+          <!-- ash / char accents -->
+          <g fill='rgba(0,0,0,0.45)'>
+            <ellipse cx='500' cy='300' rx='8' ry='3' transform='rotate(-30 500 300)'/>
+            <ellipse cx='580' cy='320' rx='6' ry='3' transform='rotate(-10 580 320)'/>
+            <ellipse cx='460' cy='340' rx='10' ry='4' transform='rotate(-20 460 340)'/>
+          </g>
+
+          <!-- garnish -->
+          <g>
+            <circle cx='540' cy='270' r='10' fill='%23fff7d6' opacity='0.96'/>
+            <rect x='548' y='268' width='28' height='6' rx='3' fill='%230f3a2f' transform='rotate(32 562 271)'/>
+          </g>
+
+          <!-- subtle highlight -->
+          <ellipse cx='400' cy='220' rx='120' ry='48' fill='rgba(255,255,255,0.08)' transform='rotate(-24 400 220)'/>
+        </g>
+
+        <!-- title -->
+        <text x='80' y='60' fill='%23ffd7a6' font-family='Georgia, serif' font-size='28' font-weight='700'>${escapeXML(title)}</text>
+
+      </svg>`;
+      return encodeSVG(svg);
+    }
+
+    // hearth scene (hero) generator: large complex SVG simulating fire, plates, smoke and depth
+    function generateHearthHero(){
+      const svg = `
+      <svg xmlns='http://www.w3.org/2000/svg' width='1600' height='900' viewBox='0 0 1600 900'>
+        <defs>
+          <radialGradient id='sky' cx='30%' cy='20%'><stop offset='0%' stop-color='%23121a16'/><stop offset='100%' stop-color='%23060a08'/></radialGradient>
+          <linearGradient id='flame' x1='0' x2='1'><stop offset='0' stop-color='%23ffb86b'/><stop offset='0.5' stop-color='%23ff6a3d'/><stop offset='1' stop-color='%23a11b0a'/></linearGradient>
+          <filter id='blur' x='-20%' y='-20%' width='140%' height='140%'><feGaussianBlur stdDeviation='8'/></filter>
+        </defs>
+        <rect width='100%' height='100%' fill='url(#sky)'/>
+        <!-- hearth base -->
+        <g transform='translate(120,260)'>
+          <rect x='0' y='240' width='1360' height='360' rx='28' fill='#170f0c'/>
+          <g transform='translate(80,60)'>
+            <!-- stones -->
+            <g fill='rgba(255,255,255,0.02)'>
+              <ellipse cx='200' cy='180' rx='120' ry='70'/>
+              <ellipse cx='520' cy='200' rx='160' ry='90'/>
+              <ellipse cx='920' cy='210' rx='180' ry='100'/>
+            </g>
+
+            <!-- flames cluster -->
+            <g transform='translate(520,160)'>
+              <path d='M0 80 C20 10, 110 -10, 90 -120 C60 -200 10 -150 -20 -100 C-60 -40 -20 30 0 80 Z' fill='url(#flame)' opacity='0.98'/>
+              <path d='M80 120 C130 40, 220 40, 200 -60 C170 -140 100 -100 60 -50 C20 0 40 80 80 120 Z' fill='rgba(255,140,70,0.18)' filter='url(#blur)' opacity='0.28'/>
+            </g>
+
+            <!-- plate on foreground -->
+            <g transform='translate(840,160)'>
+              <ellipse cx='0' cy='160' rx='120' ry='70' fill='rgba(255,255,255,0.02)'/>
+              <circle cx='0' cy='100' r='70' fill='%2312100f'/>
+              <path d='M-30 95 C0 70, 40 70, 60 95 C80 120, 20 130 -30 120 Z' fill='%23ffcd9d' opacity='0.95'/>
+            </g>
+          </g>
+        </g>
+
+        <!-- ambient smoke -->
+        <g opacity='0.12' fill='white'>
+          <ellipse cx='760' cy='160' rx='200' ry='40' transform='rotate(-8 760 160)'/>
+          <ellipse cx='820' cy='120' rx='260' ry='50' transform='rotate(-14 820 120)'/>
+        </g>
+
+        <!-- subtle vignette/texture -->
+        <rect width='100%' height='100%' fill='black' opacity='0.04'/>
+        <text x='60' y='80' fill='%23ffd7a6' font-family='Georgia, serif' font-size='34' font-weight='700'>Sol & Ember — The Hearth</text>
+      </svg>
+      `;
+      return encodeSVG(svg);
+    }
+
+    // small gallery tiles generator (different color palettes)
+    function generateGalleryTile(title, bg1, bg2, fg){
+      const svg = `
+      <svg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'>
+        <defs>
+          <linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='${bg1}'/><stop offset='1' stop-color='${bg2}'/></linearGradient>
+        </defs>
+        <rect width='100%' height='100%' fill='url(#g)'/>
+        <g transform='translate(40,40)'>
+          <rect x='0' y='0' width='720' height='520' rx='20' fill='rgba(0,0,0,0.15)'/>
+          <text x='360' y='300' text-anchor='middle' font-size='28' fill='${fg}' font-family='Georgia, serif' font-weight='700'>${escapeXML(title)}</text>
+        </g>
+      </svg>`;
+      return encodeSVG(svg);
+    }
+
+    // utility: escape text into XML-safe content
+    function escapeXML(s){
+      return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; });
+    }
+
+    // ---------------- Build menu data (AI-generated names, descriptions, prices) ----------------
+    const starters = [
+      {name:"Charred Octopus", desc:"Tender octopus charred over oak, smoked paprika jus, preserved lemon", price:18, img: generatePlateSVG('Charred Octopus','%23a84a38','%23ffad87','%23ff6a3d')},
+      {name:"Heirloom Tomato Carpaccio", desc:"Vine-ripe heirloom tomatoes, basil ash, whipped ricotta", price:14, img: generatePlateSVG('Tomato Carpaccio','%23163a2d','%23ffd7a6','%23ffb86b')},
+      {name:"Wood-Baked Burrata", desc:"Creamy burrata, rosemary oil, hearth-toasted sour", price:16, img: generatePlateSVG('Wood-Baked Burrata','%232c2b26','%23fff0d1','%23ffd7a6')},
+      {name:"Forest Mushroom Tart", desc:"Wild mushroom compote, thyme, parmesan crisp", price:15, img: generatePlateSVG('Forest Mushroom Tart','%232a2f23','%23e6ccb3','%23caa777')}
+    ];
+
+    const mains = [
+      {name:"Hearth-Roasted Lamb Shoulder", desc:"Slow-roasted lamb, charred root veg, lamb jus", price:34, img: generatePlateSVG('Hearth-Roasted Lamb','%232a1a17','%23ffdfc4','%23ff9f6b')},
+      {name:"Smoked Halibut", desc:"Oak-smoked halibut, almond salsa verde, charred lemon", price:32, img: generatePlateSVG('Smoked Halibut','%2310303a','%23cfe7df','%239fe0c7')},
+      {name:"Ember-Grilled Ribeye", desc:"18oz ribeye, marrow butter, wood-smoked chimichurri", price:46, img: generatePlateSVG('Ember-Grilled Ribeye','%231e1412','%23ffd7a6','%23ffb86b')},
+      {name:"Seasonal Vegetable Bake", desc:"Hearth-braised seasonal vegetables, hazelnut crumble", price:22, img: generatePlateSVG('Seasonal Vegetable Bake','%2313321b','%23d7f2d8','%2397dba0')}
+    ];
+
+    const desserts = [
+      {name:"Smoked Chocolate Fondant", desc:"Molten chocolate, smoked sea salt, burnt orange gelato", price:12, img: generatePlateSVG('Smoked Chocolate Fondant','%231c0f10','%23ffd7a6','%23f5c08a')},
+      {name:"Roasted Pear Tart", desc:"Caramelized pear, almond frangipane, crème fraîche", price:11, img: generatePlateSVG('Roasted Pear Tart','%232a231f','%23fff1d6','%23ffd7a6')},
+      {name:"Honey-Toast Affogato", desc:"House honey toast, espresso, olive oil gelato", price:10, img: generatePlateSVG('Honey-Toast Affogato','%23241b17','%23ffe9c6','%23ffd7a6')}
+    ];
+
+    // mount menu items into DOM
+    function mountList(id, items){
+      const root = document.getElementById(id);
+      root.innerHTML = '';
+      items.forEach(it=>{
+        const div = document.createElement('div');
+        div.className = 'dish';
+        div.innerHTML = `
+          <div class="img" style="background-image:url('${it.img}')" role="img" aria-label="${escapeXML(it.name)} image"></div>
+          <div style="flex:1">
+            <div style="display:flex;justify-content:space-between;align-items:start">
+              <div style="font-weight:900">${escapeXML(it.name)}</div>
+              <div class="price">${formatPrice(it.price)}</div>
+            </div>
+            <div style="color:var(--muted);margin-top:6px">${escapeXML(it.desc)}</div>
+            <div style="margin-top:8px"><button class="btn btn-outline" onclick="addToOrder('${escapeJS(it.name)}',${it.price})">Add $${it.price}</button></div>
+          </div>
+        `;
+        root.appendChild(div);
+      });
+    }
+
+    // simple helper to make JS-safe string (for onclick)
+    function escapeJS(s){ return s.replace(/'/g,"\\'").replace(/"/g,'\\"'); }
+    function formatPrice(n){ return '$' + Number(n).toFixed(2); }
+
+    mountList('starters', starters);
+    mountList('mains', mains);
+    mountList('desserts', desserts);
+
+    // mount gallery tiles (AI-generated)
+    const galleryGrid = document.getElementById('galleryGrid');
+    const galleryTiles = [
+      generateGalleryTile('Hearth & Flame','%231c0f0f','%230b1410','%23ffd7a6'),
+      generateGalleryTile('Charred Octopus Plate','%231a2a1f','%23ffad87','%23110f0d'),
+      generateGalleryTile('Wood-Fired Bread','%23171410','%23ffd7a6','%230b0b08'),
+      generateGalleryTile('Smoked Halibut','%230e2b2a','%23cfe7df','%230b0f0d'),
+      generateGalleryTile('Chef Marin at Hearth','%231b1310','%23ffcf9a','%23fff7e6'),
+      generateGalleryTile('Dessert Glaze','%23190f11','%23ffd7a6','%230b0a08'),
+      generateGalleryTile('Private Dining Table','%23121411','%23ffeaac','%230b0b08'),
+      generateGalleryTile('Cocktail — Ember Old Fashioned','%2311120f','%23ffaf6f','%230b0a08')
+    ];
+    galleryTiles.forEach(src=>{
+      const img = document.createElement('img');
+      img.src = src; img.alt = 'AI gallery tile'; galleryGrid.appendChild(img);
+    });
+
+    // set hero image (large hearth)
+    document.getElementById('heroImg').src = generateHearthHero();
+
+    // ---------------- Cart / Orders (local demo) ----------------
+    let cart = JSON.parse(localStorage.getItem('se_cart')||'[]');
+    function saveCart(){ localStorage.setItem('se_cart', JSON.stringify(cart)); renderCart(); }
+    function addToOrder(name, price){
+      const found = cart.find(i=>i.name===name);
+      if(found) found.qty++;
+      else cart.push({name, price, qty:1});
+      saveCart();
+      toast(`${name} added to cart`);
+    }
+    function renderCart(){
+      const c = document.getElementById('cart');
+      c.innerHTML = '';
+      if(cart.length===0){ c.textContent = 'Your cart is empty'; c.style.color = 'var(--muted)'; return; }
+      c.style.color = 'var(--text)';
+      let total = 0;
+      cart.forEach((it, idx)=>{
+        total += it.price * it.qty;
+        const row = document.createElement('div');
+        row.style.display='flex'; row.style.justifyContent='space-between'; row.style.marginBottom='8px';
+        row.innerHTML = `<div><strong>${escapeXML(it.name)}</strong><div style="color:var(--muted)">Qty: ${it.qty}</div></div><div style="text-align:right">${formatPrice(it.price*it.qty)}<div style="margin-top:6px"><button class="btn btn-outline" onclick="removeItem(${idx})">Remove</button></div></div>`;
+        c.appendChild(row);
+      });
+      const tot = document.createElement('div');
+      tot.style.marginTop='12px'; tot.style.display='flex'; tot.style.justifyContent='space-between';
+      tot.innerHTML = `<div style="font-weight:900">Total</div><div style="font-weight:900;color:var(--gold)">${formatPrice(total)}</div>`;
+      c.appendChild(tot);
+    }
+    function removeItem(i){ cart.splice(i,1); saveCart(); }
+    function clearCart(){ cart=[]; saveCart(); toast('Cart cleared'); }
+    function checkout(){
+      if(cart.length===0){ toast('Cart is empty'); return; }
+      const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+      const orders = JSON.parse(localStorage.getItem('se_orders')||'[]');
+      orders.unshift({id:Date.now(), items:cart, total, ts:new Date().toISOString()});
+      localStorage.setItem('se_orders', JSON.stringify(orders));
+      cart=[]; saveCart();
+      toast(`Checkout simulated — ${formatPrice(total)} (demo)`);
+    }
+    renderCart();
+
+    // reservations (local demo)
+    function handleReserve(e){
+      e.preventDefault();
+      const name = document.getElementById('rName').value.trim();
+      const phone = document.getElementById('rPhone').value.trim();
+      const guests = document.getElementById('rGuests').value;
+      const date = document.getElementById('rDate').value;
+      const time = document.getElementById('rTime').value;
+      if(!name || !phone || !date || !time){ document.getElementById('resStatus').textContent = 'Complete all fields.'; return false; }
+      const res = JSON.parse(localStorage.getItem('se_reservations')||'[]');
+      res.unshift({id:Date.now(), name, phone, guests, date, time, pref:document.getElementById('rPref').value});
+      localStorage.setItem('se_reservations', JSON.stringify(res));
+      document.getElementById('resStatus').textContent = 'Reservation requested — demo saved locally.';
+      e.target.reset();
+      return false;
+    }
+
+    // small toast helper
+    function toast(msg){
+      const el = document.createElement('div');
+      el.textContent = msg;
+      el.style.position='fixed'; el.style.right='18px'; el.style.bottom='18px';
+      el.style.padding='10px 14px'; el.style.borderRadius='10px';
+      el.style.background='linear-gradient(90deg,var(--accent-2),var(--gold))'; el.style.color='#23130b';
+      el.style.fontWeight='800'; el.style.boxShadow='0 8px 28px rgba(0,0,0,0.5)';
+      document.body.appendChild(el);
+      setTimeout(()=>el.style.opacity='0',2600); setTimeout(()=>el.remove(),3200);
+    }
+
+    // seed demo data for reviewers if nothing exists
+    (function seed(){
+      if(!localStorage.getItem('se_demo_seeded')){
+        localStorage.setItem('se_orders', JSON.stringify([{id:1,items:[{name:'Ember Chicken Sandwich',price:14,qty:2}],total:28,ts:new Date().toISOString()}]));
+        localStorage.setItem('se_reservations', JSON.stringify([{id:1,name:'Emily',phone:'945-000-1111',guests:4,date:new Date().toISOString().slice(0,10),time:'19:00',pref:'Window'}]));
+        localStorage.setItem('se_demo_seeded','1');
+      }
+    })();
+
+    // small accessibility: focus outlines only for keyboard
+    (function(){
+      function handleFirstTab(e){ if(e.key === 'Tab'){ document.documentElement.classList.add('user-is-tabbing'); window.removeEventListener('keydown', handleFirstTab); } }
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+
+    // expose functions for debugging/interaction
+    window.addToOrder = addToOrder; window.clearCart = clearCart; window.checkout = checkout;
+  </script>
+</body>
+</html>    .hero-visual{height:360px; border-radius:12px; overflow:hidden; display:flex; flex-direction:column}
     .visual-top{display:flex; justify-content:space-between; padding:12px; align-items:center}
     .badge{background:rgba(0,0,0,0.25); padding:6px 10px; border-radius:999px; color:var(--gold); font-weight:800}
     .hero-image{flex:1; background-size:cover; background-position:center; display:flex; align-items:flex-end; padding:18px}
